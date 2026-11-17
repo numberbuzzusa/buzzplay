@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="color-scheme" content="dark"/>
+<meta name="description" content="Play Sudoku online free — fresh puzzles with exactly one solution on Easy, Medium and Hard, with notes mode, mistake tracking and a timer. No download. How to play, tips, strategy and FAQ."/>
+<link rel="canonical" href="https://play.numberbuzzusa.xyz/sudoku/"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B1220'/%3E%3Cpath d='M26 20 L48 32 L26 44 Z' fill='%23A3E635'/%3E%3C/svg%3E"/>
+<title>Play Sudoku Online Free — No Download | BuzzPlay USA</title>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5963284443577039" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+button,[role="button"],select,summary,input:not([type="checkbox"],[type="radio"]){min-height:2rem}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+:root{--bg:#f4f7ee;--surface:#ffffff;--surface2:#eef3e2;--ink:#18230f;--muted:#5a6b4e;--line:#d9e2c8;--green:#2f7d32;--green2:#43a047;--lime:#8bc34a;--amber:#f5a623;--amber2:#ffca28;--red:#e53935;--blue:#1e88e5;--navy:#14240f;--shadow:0 10px 30px rgba(20,36,15,.12);--radius:18px;color-scheme:light}
+@media(prefers-color-scheme:dark){:root{--bg:#0f160c;--surface:#1a2614;--surface2:#223118;--ink:#eef5e2;--muted:#a8bc96;--line:#33452a;--green:#66bb6a;--green2:#81c784;--navy:#0a1207;--shadow:0 10px 30px rgba(0,0,0,.45);color-scheme:dark}}
+body{margin:0;font-family:"Nunito Sans",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+h1,h2,h3,.disp{font-family:"Fredoka",sans-serif;line-height:1.1;margin:0}
+a{color:var(--green)}button{font-family:inherit;cursor:pointer}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+/* TOP BAR */
+.topbar{position:sticky;top:0;z-index:50;background:var(--navy);color:#fff}
+.topbar-in{max-width:1120px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font-family:"Fredoka";font-size:22px;font-weight:700;letter-spacing:.2px}
+.logo-badge{width:40px;height:40px;border-radius:11px;background:var(--amber);display:grid;place-items:center;font-size:22px}
+.logo small{display:block;font-family:"Nunito Sans";font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#cfe6b8}
+.topnav{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.topnav a{color:#e8f3d8;text-decoration:none;font-weight:800;font-size:13.5px;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.22)}
+.topnav a:hover{background:rgba(255,255,255,.12)}
+/* HERO */
+.hero{background:var(--navy);color:#fff;padding:28px 0 34px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:center}
+@media(max-width:760px){.hero-grid{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(34px,6vw,56px);font-weight:700}
+.hero h1 em{font-style:normal;color:var(--amber2)}
+.hero p.lead{color:#d7e8c2;font-size:17px;max-width:52ch;margin:12px 0 0}
+.hero-stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.hstat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:10px 14px}
+.hstat b{display:block;font-family:"Fredoka";font-size:20px}.hstat span{font-size:12px;color:#bcd6a2;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.hero-art{background:#1e3316;border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:18px;text-align:center}
+.hero-art .scene{font-size:52px;line-height:1.25;letter-spacing:4px}
+.hero-art p{color:#cfe6b8;font-size:13.5px;margin:8px 0 0;font-weight:700}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:999px;padding:12px 22px;font-weight:900;font-size:15px;text-decoration:none}
+.btn-amber{background:var(--amber);color:#231a00}.btn-green{background:var(--green);color:#fff}.btn-ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+/* SECTIONS */
+section.block{padding:30px 0 6px;scroll-margin-top:84px}
+@media(max-width:760px){section.block{scroll-margin-top:136px}.topnav{flex-wrap:nowrap;overflow-x:auto;margin-left:0;width:100%;padding-bottom:4px;scrollbar-width:none}.topnav::-webkit-scrollbar{display:none}.topnav a{white-space:nowrap;flex:0 0 auto}}
+.panel.flash{animation:panelFlash 1.6s ease}
+@keyframes panelFlash{0%{box-shadow:0 0 0 4px var(--amber),var(--shadow)}100%{box-shadow:0 0 0 0 rgba(245,166,35,0),var(--shadow)}}
+@media(prefers-reduced-motion:reduce){.panel.flash{animation:none}html{scroll-behavior:auto}}
+.sec-head{display:flex;align-items:end;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.sec-head h2{font-size:clamp(24px,4vw,34px)}
+.sec-head p{color:var(--muted);margin:4px 0 0;max-width:60ch}
+.pill{display:inline-block;background:var(--amber);color:#231a00;font-weight:900;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
+/* GAME GRID */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:460px){.grid{grid-template-columns:1fr 1fr;gap:10px}}
+.gcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px}
+.gcard .ic{font-size:38px;line-height:1}
+.gcard h3{font-size:19px}
+.gcard p{color:var(--muted);font-size:13.5px;margin:0;flex:1}
+.gcard .meta{font-size:12px;font-weight:800;color:var(--green)}
+.gcard.featured{border:2px solid var(--amber)}
+.soon{opacity:.92}.soon .tag{align-self:flex-start;background:var(--surface2);border:1px dashed var(--muted);color:var(--muted);font-weight:900;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:999px}
+/* PANELS */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:20px}
+@media(max-width:560px){.panel{padding:14px}}
+/* FARM */
+.resbar{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:14px}
+@media(max-width:800px){.resbar{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:420px){.resbar{grid-template-columns:repeat(2,1fr)}}
+.res{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
+.res b{display:block;font-family:"Fredoka";font-size:19px}.res span{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.farm-scene{background:linear-gradient(180deg,#bfe3ff 0 55%,#a5d68a 55% 100%);border-radius:16px;padding:16px 10px;text-align:center;font-size:34px;line-height:1.5;letter-spacing:2px;border:1px solid var(--line);margin-bottom:14px;overflow:hidden;word-break:break-all}
+@media(prefers-color-scheme:dark){.farm-scene{background:linear-gradient(180deg,#27435f 0 55%,#2c4a22 55% 100%)}}
+.farm-cols{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
+@media(max-width:820px){.farm-cols{grid-template-columns:1fr}}
+.shop-item{display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:10px;background:var(--surface)}
+.shop-item .si{font-size:32px}.shop-item .info{flex:1;min-width:0}
+.shop-item h4{margin:0;font-family:"Fredoka";font-size:17px}.shop-item p{margin:2px 0 0;color:var(--muted);font-size:13px}
+.shop-item .own{font-weight:900;color:var(--green);font-size:13px}
+.buy-btn{background:var(--green);color:#fff;border:none;border-radius:999px;padding:10px 14px;font-weight:900;white-space:nowrap}
+.buy-btn:disabled{background:var(--surface2);color:var(--muted)}
+.lock-note{font-size:12.5px;font-weight:800;color:#b26a00;background:#fff4d6;border-radius:8px;padding:6px 9px;margin-top:6px;display:inline-block}
+@media(prefers-color-scheme:dark){.lock-note{background:#3a2f10;color:#ffca28}}
+.sell-row{display:flex;flex-wrap:wrap;gap:8px}
+.sell-btn{flex:1 1 46%;background:var(--surface2);border:1.5px solid var(--line);border-radius:12px;padding:10px;font-weight:900;color:var(--ink)}
+.sell-btn:hover{border-color:var(--green)}
+.empire-box{background:var(--navy);color:#fff;border-radius:14px;padding:14px;text-align:center;margin-top:12px}
+.empire-box b{font-family:"Fredoka";font-size:26px;color:var(--amber2);display:block}
+.empire-box span{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#cfe6b8}
+/* TTT */
+.ttt-board{display:grid;grid-template-columns:repeat(3,92px);gap:8px;justify-content:center;margin:14px auto}
+@media(max-width:380px){.ttt-board{grid-template-columns:repeat(3,80px)}}
+.ttt-cell{aspect-ratio:1;border-radius:14px;border:2px solid var(--line);background:var(--surface2);font-family:"Fredoka";font-size:38px;font-weight:700;color:var(--ink)}
+.ttt-cell.win{background:var(--amber);color:#231a00;border-color:var(--amber)}
+.seg{display:inline-flex;background:var(--surface2);border:1px solid var(--line);border-radius:999px;padding:4px;gap:4px;flex-wrap:wrap}
+.seg button{border:none;background:transparent;border-radius:999px;padding:8px 14px;font-weight:900;color:var(--muted)}
+.seg button.on{background:var(--green);color:#fff}
+.status-line{text-align:center;font-weight:900;font-size:17px;min-height:26px}
+.tally{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+.tally div{background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:8px 14px;font-weight:800;font-size:13.5px}
+/* MEMORY */
+.mem-grid{display:grid;gap:8px;justify-content:center;margin:14px auto;max-width:520px}
+.mem-grid.c4{grid-template-columns:repeat(4,1fr)}
+.mem-grid.c6{grid-template-columns:repeat(6,1fr)}
+.mtile{aspect-ratio:1;border-radius:12px;border:2px solid var(--line);background:var(--green);font-size:clamp(20px,5vw,34px);display:grid;place-items:center;cursor:pointer;color:transparent;user-select:none;padding:0}
+.mtile::after{content:"?";color:#fff;font-family:"Fredoka";font-weight:700}
+.mtile.flip{background:var(--surface2);color:var(--ink)}.mtile.flip::after{content:""}
+.mtile.done{background:#fff4d6;border-color:var(--amber);color:var(--ink);cursor:default}.mtile.done::after{content:""}
+@media(prefers-color-scheme:dark){.mtile.done{background:#3a2f10}}
+/* SNAKE */
+.snake-wrap{text-align:center}
+canvas#snakeCanvas{background:#14240f;border-radius:14px;border:2px solid var(--line);max-width:100%;height:auto;touch-action:none}
+.dpad{display:grid;grid-template-columns:repeat(3,56px);gap:6px;justify-content:center;margin-top:12px}
+.dpad button{height:52px;border-radius:12px;border:2px solid var(--line);background:var(--surface2);font-size:20px;color:var(--ink)}
+.dpad .sp{visibility:hidden}
+/* 2048 */
+.board2048{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;background:#bbada0;border-radius:14px;padding:8px;max-width:400px;margin:14px auto;touch-action:none}
+@media(prefers-color-scheme:dark){.board2048{background:#4a4036}}
+.tile2048{aspect-ratio:1;border-radius:10px;background:rgba(238,228,218,.35);display:grid;place-items:center;font-family:"Fredoka",sans-serif;font-weight:700;font-size:clamp(20px,6vw,34px);color:#776e65;user-select:none}
+.tile2048.v2{background:#eee4da}.tile2048.v4{background:#ede0c8}.tile2048.v8{background:#f2b179;color:#fff}.tile2048.v16{background:#f59563;color:#fff}.tile2048.v32{background:#f67c5f;color:#fff}.tile2048.v64{background:#f65e3b;color:#fff}.tile2048.v128{background:#edcf72;color:#fff;font-size:clamp(18px,5vw,28px)}.tile2048.v256{background:#edcc61;color:#fff;font-size:clamp(18px,5vw,28px)}.tile2048.v512{background:#edc850;color:#fff;font-size:clamp(18px,5vw,28px)}.tile2048.v1024{background:#edc53f;color:#fff;font-size:clamp(15px,4.5vw,24px)}.tile2048.v2048{background:#edc22e;color:#fff;font-size:clamp(15px,4.5vw,24px);box-shadow:0 0 0 3px var(--amber2),0 6px 18px rgba(0,0,0,.25)}.tile2048.vbig{background:#3c3a32;color:#fff;font-size:clamp(15px,4.5vw,24px)}
+/* WORDLE */
+.wordle-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;max-width:300px;margin:14px auto}
+.wtile{aspect-ratio:1;border:2px solid var(--line);border-radius:8px;display:grid;place-items:center;font-family:"Fredoka",sans-serif;font-weight:700;font-size:clamp(22px,6vw,32px);text-transform:uppercase;background:var(--surface);color:var(--ink);user-select:none}
+.wtile.filled{border-color:var(--muted)}
+.wtile.correct{background:#6aaa64;border-color:#6aaa64;color:#fff}.wtile.present{background:#c9b458;border-color:#c9b458;color:#fff}.wtile.absent{background:#787c7e;border-color:#787c7e;color:#fff}
+.wordle-kb{max-width:500px;margin:14px auto 0;display:flex;flex-direction:column;gap:6px}
+.kb-row{display:flex;gap:5px;justify-content:center}
+.kb-key{flex:1 1 0;max-width:42px;min-height:52px;border:none;border-radius:8px;background:var(--surface2);border:1px solid var(--line);color:var(--ink);font-weight:900;font-size:15px;padding:0 2px;text-transform:uppercase}
+.kb-key.wide{flex:1.6 1 0;max-width:68px;font-size:12px}
+.kb-key.correct{background:#6aaa64;border-color:#6aaa64;color:#fff}.kb-key.present{background:#c9b458;border-color:#c9b458;color:#fff}.kb-key.absent{background:#787c7e;border-color:#787c7e;color:#fff;opacity:.75}
+@media(max-width:380px){.kb-key{min-height:48px;font-size:13px}.kb-key.wide{font-size:10px}}
+/* SUDOKU */
+.sudoku-board{display:grid;grid-template-columns:repeat(9,1fr);gap:0;max-width:450px;margin:14px auto;border:3px solid var(--ink);border-radius:10px;overflow:hidden;background:var(--ink)}
+.scell{aspect-ratio:1;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface);display:grid;place-items:center;font-family:"Fredoka",sans-serif;font-weight:600;font-size:clamp(18px,5vw,26px);color:var(--blue);cursor:pointer;user-select:none;padding:0;min-height:0;position:relative;line-height:1}
+.scell:nth-child(9n){border-right:none}
+.scell.br{border-right:2.5px solid var(--ink)}
+.scell.bb{border-bottom:2.5px solid var(--ink)}
+.scell.given{color:var(--ink);font-weight:700;background:var(--surface2)}
+.scell.related{background:#e8f0fe}
+@media(prefers-color-scheme:dark){.scell.related{background:#243447}}
+.scell.same{background:#cfe0ff}
+@media(prefers-color-scheme:dark){.scell.same{background:#2f4a6a}}
+.scell.sel{background:var(--amber2)!important;color:#231a00;box-shadow:inset 0 0 0 2px var(--amber)}
+.scell.wrong{color:#fff!important;background:var(--red)!important}
+.scell .notes{display:grid;grid-template-columns:repeat(3,1fr);width:100%;height:100%;padding:2px}
+.scell .notes span{font-size:clamp(8px,2vw,11px);font-family:"Nunito Sans",sans-serif;font-weight:700;color:var(--muted);display:grid;place-items:center;line-height:1}
+.sudoku-pad{display:grid;grid-template-columns:repeat(9,1fr);gap:6px;max-width:450px;margin:10px auto 0}
+@media(max-width:460px){.sudoku-pad{grid-template-columns:repeat(5,1fr)}}
+.sudoku-pad button{min-height:52px;border-radius:10px;border:2px solid var(--line);background:var(--surface2);color:var(--ink);font-family:"Fredoka",sans-serif;font-size:22px;font-weight:700}
+.sudoku-pad button:active{background:var(--amber2)}
+.sudoku-tools{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.sudoku-tools button{border-radius:999px;padding:10px 16px;font-weight:900;border:2px solid var(--line);background:var(--surface);color:var(--ink)}
+.sudoku-tools button.on{background:var(--green);color:#fff;border-color:var(--green)}
+/* CHESS */
+.chess-wrap{max-width:480px;margin:0 auto}
+.chess-board{display:grid;grid-template-columns:repeat(8,1fr);border:3px solid #5d4037;border-radius:10px;overflow:hidden;touch-action:manipulation}
+.ccell{aspect-ratio:1;display:grid;place-items:center;font-size:clamp(26px,7.5vw,44px);line-height:1;cursor:pointer;user-select:none;padding:0;border:none;min-height:0;position:relative}
+.ccell.light{background:#f0d9b5}.ccell.dark{background:#b58863}
+.ccell.sel{box-shadow:inset 0 0 0 4px var(--amber),inset 0 0 0 6px rgba(0,0,0,.15);background:#f7ec6a!important}
+.ccell.last{background:#e8d88a!important}
+.ccell.dark.last{background:#cbb26a!important}
+.ccell.check{background:#e57373!important}
+.ccell.hint::after{content:"";width:32%;height:32%;border-radius:50%;background:rgba(20,60,20,.35);position:absolute}
+.ccell.hintcap{box-shadow:inset 0 0 0 4px rgba(180,30,30,.55)}
+.ccell .wp{color:#fff;text-shadow:0 1px 2px #000,0 0 3px #000}
+.ccell .bp{color:#111;text-shadow:0 1px 1px rgba(255,255,255,.4)}
+.captured-row{display:flex;align-items:center;gap:6px;min-height:30px;flex-wrap:wrap;font-size:22px;line-height:1.2}
+.captured-row .lbl{font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+/* FOOTER / PAGES */
+footer{margin-top:44px;background:var(--navy);color:#d7e8c2;padding:30px 0 20px}
+footer h3{color:#fff}
+.foot-links{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.foot-links button{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:9px 16px;font-weight:800}
+.page-view{display:none;background:var(--surface);border-top:4px solid var(--amber)}
+.page-view.open{display:block}
+.page-view .wrap{padding:28px 16px 36px}
+.page-view h2{font-size:30px;margin-bottom:10px}
+.page-view p,.page-view li{color:var(--muted)}
+/* MODAL */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;place-items:center;z-index:100;padding:16px}
+.modal.open{display:grid}
+.modal-box{background:var(--surface);border-radius:18px;padding:22px;max-width:420px;width:100%;box-shadow:var(--shadow)}
+.toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%) translateY(80px);background:var(--navy);color:#fff;padding:12px 20px;border-radius:999px;font-weight:800;z-index:120;transition:transform .3s;max-width:92vw;text-align:center}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.center{text-align:center}.mt{margin-top:14px}.small{font-size:13px;color:var(--muted)}
+
+/* ===== BuzzPlay dedicated-page dark arcade theme (overrides) ===== */
+:root{--bg:#0B1220;--surface:#16233A;--surface2:#1E2E4A;--ink:#E8EEF7;--muted:#94A7C4;--line:#2A3C5F;--green:#A3E635;--green2:#BEF264;--amber:#FBBF24;--amber2:#FBBF24;--red:#F87171;--blue:#22D3EE;--navy:#0B1220;--shadow:0 12px 32px rgba(0,0,0,.45);color-scheme:dark}
+body{font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;background:#0B1220;color:#E8EEF7}
+h1,h2,h3,.disp{font-family:"Sora",sans-serif}
+a{color:#22D3EE}
+.btn-green{background:#A3E635;color:#0B1220}
+.btn-green:hover{background:#BEF264}
+.btn-ghost{background:transparent;color:#E8EEF7;border:2px solid #2A3C5F}
+.pill{background:#8B5CF6;color:#fff}
+.scell.related{background:#243447}.scell.same{background:#2f4a6a}
+.mtile.done{background:#3a2f10}
+.lock-note{background:#3a2f10;color:#FBBF24}
+.sec-head p{color:#94A7C4}
+footer{background:#0B1220;color:#94A7C4}
+/* header */
+.bp-header{position:sticky;top:0;z-index:60;background:rgba(9,14,26,.94);border-bottom:1px solid #2A3C5F}
+.bp-header-in{max-width:1120px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:12px;position:relative}
+.bp-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#E8EEF7;font-family:"Sora",sans-serif;font-weight:800;font-size:22px;letter-spacing:.2px}
+.bp-badge{background:#8B5CF6;color:#fff;font-family:"Inter",sans-serif;font-size:10.5px;font-weight:800;letter-spacing:.12em;padding:4px 9px;border-radius:999px}
+.bp-nav{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.bp-nav a{color:#E8EEF7;text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:999px;border:1px solid #2A3C5F}
+.bp-nav a:hover{background:#16233A;border-color:#A3E635}
+.bp-burger{display:none;margin-left:auto;background:#16233A;border:1px solid #2A3C5F;color:#E8EEF7;border-radius:10px;font-size:19px;line-height:1;padding:8px 13px;cursor:pointer}
+@media(max-width:760px){.bp-burger{display:block}.bp-nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:8px;background:#0B1220;padding:14px 16px;border-bottom:1px solid #2A3C5F;margin-left:0}.bp-nav.open{display:flex}}
+/* page structure */
+.crumbs{font-size:13px;color:#94A7C4;margin:20px 0 0;font-weight:600}
+.crumbs a{color:#22D3EE;text-decoration:none}
+.page-h1{font-size:clamp(30px,5.4vw,44px);font-weight:800;margin:10px 0 0}
+.tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.gtag{display:inline-block;font-weight:800;font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;padding:5px 11px;border-radius:999px;border:1px solid #2A3C5F;color:#94A7C4}
+.gtag.genre{background:#8B5CF6;border-color:#8B5CF6;color:#fff}
+.gtag.instant{background:#A3E635;border-color:#A3E635;color:#0B1220}
+.intro{color:#C4D2E8;font-size:16.5px;max-width:68ch;margin:12px 0 0}
+.arcade-frame{background:linear-gradient(150deg,rgba(163,230,53,.5),rgba(139,92,246,.5) 55%,rgba(34,211,238,.5));padding:3px;border-radius:24px;margin-top:20px}
+.arcade-frame-in{background:#0D1830;border-radius:21px;padding:2px 16px 16px}
+.arcade-frame section.block{padding:16px 0 2px;scroll-margin-top:0}
+@media(max-width:560px){.arcade-frame-in{padding:2px 8px 10px}}
+/* guide */
+.guide{margin-top:36px;background:#16233A;border:1px solid #2A3C5F;border-radius:20px;padding:26px;box-shadow:var(--shadow)}
+@media(max-width:560px){.guide{padding:18px}}
+.guide h2{font-size:clamp(22px,3.6vw,29px);margin:26px 0 10px}
+.guide h2:first-child{margin-top:0}
+.guide p,.guide li{color:#C4D2E8;font-size:15.5px}
+.guide ol,.guide ul{padding-left:22px;margin:8px 0}
+.guide li{margin:7px 0}
+.guide strong{color:#E8EEF7}
+.faq-item{border-top:1px solid #2A3C5F;padding:15px 0 5px}
+.faq-item h3{font-size:17px;margin:0 0 6px;color:#E8EEF7}
+.faq-item p{margin:0 0 10px}
+/* more games */
+.more-h{font-size:clamp(22px,3.6vw,29px);margin:36px 0 14px}
+.more-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:760px){.more-grid{grid-template-columns:1fr}}
+.more-card{background:#16233A;border:1px solid #2A3C5F;border-radius:18px;padding:18px;text-decoration:none;color:#E8EEF7;display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow)}
+.more-card:hover{border-color:#A3E635}
+.more-card .ic{font-size:36px;line-height:1}
+.more-card h3{font-size:19px;margin:0}
+.more-card p{color:#94A7C4;font-size:13.5px;margin:0;flex:1}
+.play-btn{align-self:flex-start;background:#A3E635;color:#0B1220;font-weight:800;font-size:14px;padding:9px 16px;border-radius:999px}
+/* footer */
+.bp-footer{margin-top:48px;background:#0B1220;border-top:1px solid #2A3C5F;color:#94A7C4;padding:30px 0 24px}
+.bp-foot-brand{font-family:"Sora",sans-serif;font-weight:800;color:#E8EEF7;font-size:18px;margin:0}
+.bp-foot-links{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 6px}
+.bp-foot-links a{color:#E8EEF7;text-decoration:none;background:rgba(255,255,255,.06);border:1px solid #2A3C5F;border-radius:999px;padding:9px 16px;font-weight:700;font-size:14px}
+.bp-foot-links a:hover{border-color:#A3E635}
+.bp-foot-copy{font-size:13px;color:#94A7C4;margin:10px 0 0}
+</style>
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YK9C0FMSE0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YK9C0FMSE0');
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zevtuihpb8");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this Sudoku game free, with no download?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Sudoku on BuzzPlay USA is completely free and runs in your browser — no download, no install, no account and no sign-up, on phone, tablet or computer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does every Sudoku puzzle have a solution?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Every puzzle is generated with exactly one unique solution, so there is always a logical path to the finished grid and never a need to guess."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between Easy, Medium and Hard?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The number of starting clues. Easy gives you the most givens and solves mainly by scanning, Medium gives fewer and needs candidate notes, and Hard gives the fewest and calls for advanced techniques like pairs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Notes mode work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tap the Notes button to switch it on, then tap a digit to pencil a small candidate mark into the selected cell instead of placing a full number. Toggle Notes off to place real answers, and use Erase to clear a cell."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are my best Sudoku times saved?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Your best finishing time for each difficulty is stored in your own browser on your device, so you can try to beat it next time. Clearing your browser data resets the records."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="toast" id="toast" role="status"></div>
+<header class="bp-header"><div class="bp-header-in">
+  <a class="bp-logo" href="/"><svg width="40" height="40" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#A3E635"/><path d="M26 20 L48 32 L26 44 Z" fill="#0B1220"/></svg><span>BuzzPlay</span><span class="bp-badge">ARCADE</span></a>
+  <button class="bp-burger" id="bpBurger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
+  <nav class="bp-nav" id="bpNav">
+    <a href="/#games">All Games</a><a href="/daily-puzzles/">Daily Puzzles</a><a href="/guides/">Game Guides</a><a href="/about.html">About</a>
+  </nav>
+</div></header>
+<main class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/#games">Games</a> / Sudoku</nav>
+  <h1 class="page-h1">Play Sudoku Online Free</h1>
+  <div class="tagrow"><span class="gtag genre">Logic</span><span class="gtag instant">⚡ Instant Play</span><span class="gtag">No Download</span><span class="gtag">100% Free</span></div>
+  <p class="intro">This is Sudoku the way it should be: a brand-new puzzle generated for every game, guaranteed to have exactly one solution, with three difficulty levels, a pencil-notes mode, mistake highlighting and a running timer. Your best time for each difficulty saves automatically, so every game is a race against yourself.</p>
+  <div class="arcade-frame"><div class="arcade-frame-in">
+<section class="block" id="game-sudoku">
+  <div class="sec-head"><div><h2>🔲 Sudoku</h2><p>Fill every row, column and 3×3 box with the numbers 1–9. Tap a cell, then tap a number. Use Notes mode for pencil marks. Wrong numbers are highlighted and counted — your best time for each difficulty saves automatically.</p></div></div>
+  <div class="panel center">
+    <div class="seg" id="sudokuDiff" role="group" aria-label="Sudoku difficulty">
+      <button type="button" data-sdiff="easy" class="on">😊 Easy</button>
+      <button type="button" data-sdiff="medium">😐 Medium</button>
+      <button type="button" data-sdiff="hard">😤 Hard</button>
+    </div>
+    <div class="tally">
+      <div>⏱️ Time: <b id="sudokuTime">0:00</b></div><div>❌ Mistakes: <b id="sudokuMistakes">0</b></div><div>🏆 Best (<span id="sudokuBestLabel">Easy</span>): <b id="sudokuBest">—</b></div>
+    </div>
+    <div class="sudoku-board" id="sudokuBoard" aria-label="Sudoku board"></div>
+    <p class="status-line" id="sudokuStatus">Generating a fresh puzzle…</p>
+    <div class="sudoku-pad" id="sudokuPad" aria-label="Number pad"></div>
+    <div class="sudoku-tools">
+      <button type="button" id="sudokuNotesBtn">✏️ Notes: OFF</button>
+      <button type="button" id="sudokuEraseBtn">⌫ Erase</button>
+      <button type="button" id="sudokuCheckBtn">✔ Check Board</button>
+    </div>
+    <div class="mt"><button class="btn btn-green" id="sudokuNew" type="button">↺ New Game</button></div>
+    <p class="small mt">Every puzzle is generated fresh with exactly one solution. Tap a filled cell to highlight all matching numbers.</p>
+  </div>
+</section>
+  </div></div>
+
+  <section class="guide" id="guide">
+    <h2>How to Play Sudoku</h2>
+    <ol>
+        <li>Choose a difficulty to begin: Easy, Medium or Hard. The harder the level, the fewer starting numbers (givens) you receive. A fresh puzzle with a unique solution is generated instantly.</li>
+        <li>Tap any empty cell to select it — the board highlights its row, column and 3×3 box, plus every matching number — then tap a digit on the number pad to place it.</li>
+        <li>The goal is to fill the grid so that every row, every column and every 3×3 box contains the digits 1 to 9 exactly once.</li>
+        <li>If you place a wrong digit it flashes red and counts as a mistake, so you can correct it straight away.</li>
+        <li>Toggle Notes mode to pencil small candidate digits into a cell while you are still deciding, and use Erase to clear a cell completely.</li>
+        <li>Tap Check Board at any time to verify your progress. Fill the final cell correctly to finish — your time is compared with your saved best for that difficulty.</li>
+    </ol>
+    <h2>Pro Winning Tips</h2>
+    <ul>
+        <li><strong>Start with the nearly-full units.</strong> Scan every row, column and box and fill in the "naked singles" — cells where only one digit can possibly go. Easy puzzles often half-solve themselves this way.</li>
+        <li><strong>Use notes generously.</strong> Before making decisions, pencil the possible candidates into the empty cells of a box. Patterns that are invisible in your head become obvious on the grid.</li>
+        <li><strong>Hunt for hidden singles.</strong> Sometimes a digit can only fit in one cell of a row, column or box even though that cell has several candidates. This is the single most useful technique beyond the basics.</li>
+        <li><strong>Tap a placed number to highlight all its twins.</strong> It is the fastest way to see where that digit still can and cannot go across the whole board.</li>
+        <li><strong>Never guess.</strong> Every puzzle here has exactly one solution and it can always be reached by logic. If you feel forced to guess, you have missed a deduction — scan again instead.</li>
+        <li><strong>Work box by box when stuck.</strong> If a full-board scan stalls, focus on one 3×3 box and cross-reference its missing digits against its rows and columns.</li>
+    </ul>
+    <h2>Sudoku Strategy</h2>
+    <p>Solid Sudoku strategy is systematic elimination. Begin with cross-hatching: for each digit from 1 to 9, sweep the rows and columns that already contain it and mark where it can still live inside each 3×3 box — this produces most of your early placements and notes. Once the obvious singles dry up, shift to candidate logic. A naked pair — two cells in the same row, column or box holding the exact same two candidates — means those two digits are locked into those cells, so you can erase them from every other cell in that unit, often triggering a chain of new singles. Pointing pairs work in the other direction: if a digit inside a box can only sit in one row, it can be eliminated from the rest of that row outside the box. Manage your mistakes deliberately: because this game flags wrong entries immediately, use that as a safety net for checking a deduction, not as a licence to guess — clean solves are what improve your best times. Difficulty is mostly about clue count and how deep the logic chains run: Easy rewards scanning, Medium demands full notes, and Hard regularly requires pairs and pointing techniques. Finish with a full verification pass using Check Board before filling the last few cells.</p>
+    <h2>Frequently Asked Questions</h2>
+      <div class="faq-item"><h3>Is this Sudoku game free, with no download?</h3><p>Yes. Sudoku on BuzzPlay USA is completely free and runs in your browser — no download, no install, no account and no sign-up, on phone, tablet or computer.</p></div>
+      <div class="faq-item"><h3>Does every Sudoku puzzle have a solution?</h3><p>Yes. Every puzzle is generated with exactly one unique solution, so there is always a logical path to the finished grid and never a need to guess.</p></div>
+      <div class="faq-item"><h3>What is the difference between Easy, Medium and Hard?</h3><p>The number of starting clues. Easy gives you the most givens and solves mainly by scanning, Medium gives fewer and needs candidate notes, and Hard gives the fewest and calls for advanced techniques like pairs.</p></div>
+      <div class="faq-item"><h3>How does Notes mode work?</h3><p>Tap the Notes button to switch it on, then tap a digit to pencil a small candidate mark into the selected cell instead of placing a full number. Toggle Notes off to place real answers, and use Erase to clear a cell.</p></div>
+      <div class="faq-item"><h3>Are my best Sudoku times saved?</h3><p>Yes. Your best finishing time for each difficulty is stored in your own browser on your device, so you can try to beat it next time. Clearing your browser data resets the records.</p></div>
+  </section>
+
+  <h2 class="more-h">More Games You'll Love</h2>
+  <div class="more-grid">
+      <a class="more-card" href="/2048/"><span class="ic">🔢</span><h3>2048</h3><p>Slide and merge numbered tiles to reach the legendary 2048 tile.</p><span class="play-btn">Play Now ▶</span></a>
+      <a class="more-card" href="/wordle/"><span class="ic">🔤</span><h3>Wordle Unlimited</h3><p>Guess the hidden 5-letter word in 6 tries — unlimited rounds, streaks saved.</p><span class="play-btn">Play Now ▶</span></a>
+      <a class="more-card" href="/chess/"><span class="ic">♟️</span><h3>Chess vs Computer</h3><p>Full chess against the computer — castling, en passant and promotion included.</p><span class="play-btn">Play Now ▶</span></a>
+  </div>
+</main>
+<footer class="bp-footer"><div class="wrap">
+  <p class="bp-foot-brand">🎮 BuzzPlay — A NumberBuzz USA Entertainment Hub</p>
+  <p style="margin:6px 0 0;max-width:62ch">Free online browser games — play instantly on phone, tablet or computer at <strong>play.numberbuzzusa.xyz</strong>. No downloads, no sign-ups, just games. Scores save in your own browser only.</p>
+  <div class="bp-foot-links">
+    <a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy-policy.html">Privacy Policy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a>
+  </div>
+  <p class="bp-foot-copy">© 2026 BuzzPlay USA. All rights reserved.</p>
+</div></footer>
+<script>
+(function(){var b=document.getElementById("bpBurger"),n=document.getElementById("bpNav");if(!b||!n)return;b.addEventListener("click",function(){var o=n.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false")});})();
+</script>
+<script>
+"use strict";
+var $=function(id){return document.getElementById(id)};
+function toast(msg){var t=$("toast");t.textContent=msg;t.classList.add("show");clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove("show")},2600)}
+function fmt(n){n=Math.floor(n);if(n>=1e6)return (n/1e6).toFixed(2)+"M";if(n>=1e4)return (n/1e3).toFixed(1)+"K";return n.toLocaleString("en-US")}
+function save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function load(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+
+/* ================= SUDOKU ================= */
+var sudokuBest=load("buzzplay_sudoku_best",{});
+var sudoku={diff:"easy",solution:[],board:[],given:[],notes:[],sel:null,notesMode:false,mistakes:0,secs:0,timer:null,over:false,wrong:{}};
+function sudokuShuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+function sudokuValid(grid,r,c,n){for(var i=0;i<9;i++){if(grid[r][i]===n||grid[i][c]===n)return false}var br=Math.floor(r/3)*3,bc=Math.floor(c/3)*3;for(var dr=0;dr<3;dr++)for(var dc=0;dc<3;dc++)if(grid[br+dr][bc+dc]===n)return false;return true}
+function sudokuSolveFull(grid){for(var r=0;r<9;r++)for(var c=0;c<9;c++){if(grid[r][c]===0){var nums=sudokuShuffle([1,2,3,4,5,6,7,8,9]);for(var k=0;k<9;k++){if(sudokuValid(grid,r,c,nums[k])){grid[r][c]=nums[k];if(sudokuSolveFull(grid))return true;grid[r][c]=0}}return false}}return true}
+function sudokuCount(grid,limit){for(var r=0;r<9;r++)for(var c=0;c<9;c++){if(grid[r][c]===0){var count=0;for(var n=1;n<=9;n++){if(sudokuValid(grid,r,c,n)){grid[r][c]=n;count+=sudokuCount(grid,limit-count);grid[r][c]=0;if(count>=limit)return count}}return count}}return 1}
+function sudokuGen(diff){
+ var full=[];for(var r=0;r<9;r++){full.push([0,0,0,0,0,0,0,0,0])}
+ sudokuSolveFull(full);
+ var puzzle=full.map(function(row){return row.slice()});
+ var target=diff==="easy"?36:(diff==="medium"?46:54);
+ var cells=[];for(var i=0;i<81;i++)cells.push(i);sudokuShuffle(cells);
+ var removed=0;
+ for(var idx=0;idx<cells.length&&removed<target;idx++){
+   var rr=Math.floor(cells[idx]/9),cc=cells[idx]%9;if(puzzle[rr][cc]===0)continue;
+   var backup=puzzle[rr][cc];puzzle[rr][cc]=0;
+   var copy=puzzle.map(function(row){return row.slice()});
+   if(sudokuCount(copy,2)!==1){puzzle[rr][cc]=backup}else{removed++}
+ }
+ return{solution:full,puzzle:puzzle};
+}
+function sudokuBestText(){var b=sudokuBest[sudoku.diff];return b?fmtTime(b):"—"}
+function renderSudokuStats(){$("sudokuTime").textContent=fmtTime(sudoku.secs);$("sudokuMistakes").textContent=sudoku.mistakes;$("sudokuBest").textContent=sudokuBestText();$("sudokuBestLabel").textContent=sudoku.diff.charAt(0).toUpperCase()+sudoku.diff.slice(1)}
+function renderSudoku(){
+ var bd=$("sudokuBoard");bd.innerHTML="";
+ var selR=sudoku.sel?sudoku.sel.r:-1,selC=sudoku.sel?sudoku.sel.c:-1;
+ var selVal=(selR>=0)?sudoku.board[selR][selC]:0;
+ for(var r=0;r<9;r++)for(var c=0;c<9;c++){
+   (function(r,c){
+     var d=document.createElement("button");d.type="button";
+     var cls="scell";
+     if(c===2||c===5)cls+=" br";if(r===2||r===5)cls+=" bb";
+     if(sudoku.given[r][c])cls+=" given";
+     if(sudoku.sel){
+       if(r===selR||c===selC||(Math.floor(r/3)===Math.floor(selR/3)&&Math.floor(c/3)===Math.floor(selC/3)))cls+=" related";
+       if(selVal!==0&&sudoku.board[r][c]===selVal)cls+=" same";
+       if(r===selR&&c===selC)cls+=" sel";
+     }
+     if(sudoku.wrong[r+"-"+c])cls+=" wrong";
+     d.className=cls;
+     var v=sudoku.board[r][c];
+     if(v!==0){d.textContent=v}
+     else if(sudoku.notes[r][c]&&sudoku.notes[r][c].length){
+       var nd=document.createElement("span");nd.className="notes";
+       for(var n=1;n<=9;n++){var s=document.createElement("span");s.textContent=sudoku.notes[r][c].indexOf(n)>=0?n:"";nd.appendChild(s)}
+       d.appendChild(nd);
+     }else{d.textContent=""}
+     d.setAttribute("aria-label","Row "+(r+1)+" column "+(c+1)+(v?(" value "+v):" empty"));
+     d.addEventListener("click",function(){sudoku.sel={r:r,c:c};renderSudoku()});
+     bd.appendChild(d);
+   })(r,c);
+ }
+ renderSudokuStats();
+}
+function sudokuStartTimer(){clearInterval(sudoku.timer);sudoku.timer=setInterval(function(){if(!sudoku.over){sudoku.secs++;$("sudokuTime").textContent=fmtTime(sudoku.secs)}},1000)}
+function sudokuNewGame(){
+ sudoku.over=false;sudoku.mistakes=0;sudoku.secs=0;sudoku.sel=null;sudoku.wrong={};sudoku.notesMode=false;
+ $("sudokuNotesBtn").textContent="✏️ Notes: OFF";$("sudokuNotesBtn").classList.remove("on");
+ $("sudokuStatus").textContent="Generating a fresh puzzle…";
+ renderSudokuStats();
+ setTimeout(function(){
+   var gen=sudokuGen(sudoku.diff);
+   sudoku.solution=gen.solution;sudoku.board=gen.puzzle.map(function(row){return row.slice()});
+   sudoku.given=gen.puzzle.map(function(row){return row.map(function(v){return v!==0})});
+   sudoku.notes=[];for(var r=0;r<9;r++){var row=[];for(var c=0;c<9;c++)row.push([]);sudoku.notes.push(row)}
+   $("sudokuStatus").textContent="Your move! Tap a cell, then a number.";
+   renderSudoku();sudokuStartTimer();
+ },30);
+}
+function sudokuInput(n){
+ if(sudoku.over||!sudoku.sel)return;var r=sudoku.sel.r,c=sudoku.sel.c;
+ if(sudoku.given[r][c]){$("sudokuStatus").textContent="That number is printed on the puzzle — pick another cell.";return}
+ if(sudoku.notesMode){
+   if(sudoku.board[r][c]!==0)return;
+   var arr=sudoku.notes[r][c];var ix=arr.indexOf(n);if(ix>=0)arr.splice(ix,1);else arr.push(n);
+   delete sudoku.wrong[r+"-"+c];renderSudoku();return;
+ }
+ if(sudoku.board[r][c]===n)return;
+ sudoku.board[r][c]=n;sudoku.notes[r][c]=[];
+ if(n!==sudoku.solution[r][c]){
+   sudoku.mistakes++;sudoku.wrong[r+"-"+c]=true;
+   $("sudokuStatus").textContent="❌ "+n+" doesn't go there — try again! Mistakes: "+sudoku.mistakes;
+ }else{
+   delete sudoku.wrong[r+"-"+c];
+   $("sudokuStatus").textContent="✔ Correct!";
+   // clear this number from notes in same row/col/box
+   for(var i=0;i<9;i++){var a=sudoku.notes[r][i],b=sudoku.notes[i][c];var ia=a.indexOf(n);if(ia>=0)a.splice(ia,1);var ib=b.indexOf(n);if(ib>=0)b.splice(ib,1)}
+   var br=Math.floor(r/3)*3,bc=Math.floor(c/3)*3;
+   for(var dr=0;dr<3;dr++)for(var dc=0;dc<3;dc++){var cc2=sudoku.notes[br+dr][bc+dc];var ic=cc2.indexOf(n);if(ic>=0)cc2.splice(ic,1)}
+ }
+ renderSudoku();
+ var done=true;for(var rr=0;rr<9;rr++)for(var cc3=0;cc3<9;cc3++)if(sudoku.board[rr][cc3]!==sudoku.solution[rr][cc3])done=false;
+ if(done){sudoku.over=true;clearInterval(sudoku.timer);
+   var prev=sudokuBest[sudoku.diff];var isBest=!prev||sudoku.secs<prev;
+   if(isBest){sudokuBest[sudoku.diff]=sudoku.secs;save("buzzplay_sudoku_best",sudokuBest)}
+   $("sudokuStatus").textContent="🎉 Puzzle solved in "+fmtTime(sudoku.secs)+" with "+sudoku.mistakes+" mistake"+(sudoku.mistakes===1?"":"s")+"!"+(isBest?" 🏆 New best time!":"");
+   renderSudokuStats();if(isBest)toast("🏆 New Sudoku best time — "+fmtTime(sudoku.secs)+"!");
+ }
+}
+(function buildSudokuPad(){var pad=$("sudokuPad");for(var n=1;n<=9;n++){(function(n){var b=document.createElement("button");b.type="button";b.textContent=n;b.addEventListener("click",function(){sudokuInput(n)});pad.appendChild(b)})(n)}})();
+$("sudokuNotesBtn").addEventListener("click",function(){sudoku.notesMode=!sudoku.notesMode;this.textContent=sudoku.notesMode?"✏️ Notes: ON":"✏️ Notes: OFF";this.classList.toggle("on",sudoku.notesMode);$("sudokuStatus").textContent=sudoku.notesMode?"Notes mode ON — tap numbers to pencil in small marks.":"Notes mode OFF."});
+$("sudokuEraseBtn").addEventListener("click",function(){if(!sudoku.sel||sudoku.over)return;var r=sudoku.sel.r,c=sudoku.sel.c;if(sudoku.given[r][c])return;sudoku.board[r][c]=0;sudoku.notes[r][c]=[];delete sudoku.wrong[r+"-"+c];renderSudoku()});
+$("sudokuCheckBtn").addEventListener("click",function(){
+ if(sudoku.over)return;var bad=0,empty=0;sudoku.wrong={};
+ for(var r=0;r<9;r++)for(var c=0;c<9;c++){if(sudoku.board[r][c]===0)empty++;else if(sudoku.board[r][c]!==sudoku.solution[r][c]){bad++;sudoku.wrong[r+"-"+c]=true}}
+ renderSudoku();
+ if(bad===0&&empty===0)$("sudokuStatus").textContent="🎉 Perfect — everything is correct!";
+ else if(bad===0)$("sudokuStatus").textContent="✔ No mistakes so far — "+empty+" cells left to fill.";
+ else $("sudokuStatus").textContent="❌ "+bad+" wrong number"+(bad===1?"":"s")+" highlighted in red.";
+});
+$("sudokuNew").addEventListener("click",sudokuNewGame);
+document.querySelectorAll("#sudokuDiff button").forEach(function(b){b.addEventListener("click",function(){document.querySelectorAll("#sudokuDiff button").forEach(function(x){x.classList.remove("on")});b.classList.add("on");sudoku.diff=b.getAttribute("data-sdiff");sudokuNewGame()})});
+document.addEventListener("keydown",function(e){var el=$("sudokuBoard");if(!el||!sudoku.sel)return;var rc=el.getBoundingClientRect();if(rc.top>window.innerHeight||rc.bottom<0)return;
+ if(/^[1-9]$/.test(e.key))sudokuInput(parseInt(e.key,10));else if(e.key==="Backspace"||e.key==="Delete"){$("sudokuEraseBtn").click();e.preventDefault()}
+ else if(e.key.indexOf("Arrow")===0){var r=sudoku.sel.r,c=sudoku.sel.c;if(e.key==="ArrowUp")r=Math.max(0,r-1);if(e.key==="ArrowDown")r=Math.min(8,r+1);if(e.key==="ArrowLeft")c=Math.max(0,c-1);if(e.key==="ArrowRight")c=Math.min(8,c+1);sudoku.sel={r:r,c:c};renderSudoku();e.preventDefault()}});
+sudokuNewGame();
+</script>
+</body>
+</html>
