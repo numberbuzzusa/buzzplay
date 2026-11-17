@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="color-scheme" content="dark"/>
+<meta name="description" content="BuzzPlay Daily Puzzles: a five-minute daily brain warm-up with Wordle Unlimited and Sudoku. Fresh challenges every day, free in your browser — no download, no sign-up."/>
+<link rel="canonical" href="https://play.numberbuzzusa.xyz/daily-puzzles/"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230B1220'/><path d='M26 20l18 12-18 12z' fill='%23A3E635'/></svg>"/>
+<title>Daily Puzzles — Wordle & Sudoku, Fresh Every Day | BuzzPlay USA</title>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5963284443577039" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{--bg:#0B1220;--panel:#16233A;--panel2:#141F33;--ink:#E8EEF7;--muted:#94A7C4;--lime:#A3E635;--violet:#8B5CF6;--cyan:#22D3EE;--amber:#FBBF24;--line:rgba(148,167,196,.22);--shadow:0 14px 34px rgba(0,0,0,.45);color-scheme:dark}
+body{margin:0;font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+h1,h2,h3{font-family:"Sora",sans-serif;line-height:1.12;margin:0}
+a{color:var(--cyan)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+/* HEADER */
+.site-header{position:sticky;top:0;z-index:60;background:rgba(11,18,32,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.header-in{max-width:1120px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.logo-mark{width:40px;height:40px;border-radius:11px;flex:0 0 auto;display:block}
+.brand-name{font-family:"Sora",sans-serif;font-size:23px;font-weight:800;letter-spacing:.2px}
+.badge{display:inline-block;font-family:"Sora",sans-serif;font-weight:700;font-size:10.5px;letter-spacing:.12em;padding:4px 9px;border-radius:999px;text-transform:uppercase;white-space:nowrap}
+.badge-ar{background:var(--lime);color:#14210a}
+.badge-violet{background:var(--violet);color:#fff}
+.badge-amber{background:var(--amber);color:#231a00}
+.main-nav{margin-left:auto;display:flex;gap:6px;align-items:center}
+.main-nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:14px;padding:9px 13px;border-radius:999px;border:1px solid transparent}
+.main-nav a:hover{border-color:var(--line);background:var(--panel)}
+.nav-toggle{display:none;margin-left:auto;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:12px;width:44px;height:44px;font-size:20px;cursor:pointer}
+@media(max-width:760px){
+.nav-toggle{display:grid;place-items:center}
+.main-nav{display:none;position:absolute;top:100%;left:0;right:0;background:#0E1830;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;padding:10px 16px 14px;gap:6px;margin-left:0}
+.main-nav.open{display:flex}
+.main-nav a{padding:12px 14px;border:1px solid var(--line);border-radius:12px}
+}
+/* HERO */
+.hero{padding:42px 0 8px}
+.eyebrow{display:inline-block;font-family:"Sora",sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);border:1px solid rgba(163,230,53,.4);padding:6px 12px;border-radius:999px;background:rgba(163,230,53,.08)}
+.hero h1{font-size:clamp(34px,6vw,54px);font-weight:800;margin:16px 0 0;max-width:16ch}
+.hero h1 .grad{background:linear-gradient(90deg,var(--lime),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{color:var(--muted);font-size:17px;max-width:58ch;margin:14px 0 0}
+.page-head{padding:38px 0 4px}
+.page-head h1{font-size:clamp(30px,5vw,44px);font-weight:800;margin:14px 0 0}
+.page-head p.lead{color:var(--muted);font-size:16.5px;max-width:62ch;margin:12px 0 0}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.chip{background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:9px 15px;font-weight:700;font-size:13.5px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:999px;padding:13px 24px;font-family:"Sora",sans-serif;font-weight:700;font-size:15px;text-decoration:none;cursor:pointer;min-height:48px}
+.btn-lime{background:var(--lime);color:#14210a}
+.btn-violet{background:var(--violet);color:#fff}
+.btn-cyan{background:var(--cyan);color:#06202a}
+.btn-amber{background:var(--amber);color:#231a00}
+.btn-ghost{background:rgba(11,18,32,.35);color:#fff;border:2px solid rgba(255,255,255,.45)}
+.btn-play{padding:10px 18px;font-size:14px;min-height:44px}
+/* BANNERS */
+.banner{border-radius:22px;padding:26px;margin-top:28px;box-shadow:var(--shadow)}
+.banner-farm{background:linear-gradient(120deg,#1d3a12,#3f6212 55%,#65a30d);border:1px solid rgba(163,230,53,.45)}
+.banner-daily{background:linear-gradient(120deg,#221448,#4c1d95 55%,#0e7490);border:1px solid rgba(139,92,246,.5)}
+.banner .scene{font-size:54px;line-height:1.25;letter-spacing:4px}
+.banner h2{font-size:clamp(24px,4vw,34px);font-weight:800;color:#fff;margin-top:10px}
+.banner p{color:rgba(255,255,255,.88);max-width:62ch;margin:10px 0 0}
+.banner .save-note{font-weight:700;color:#fff;font-size:14px}
+.banner-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;align-items:center}
+/* SECTIONS + GAME GRID */
+section.block{padding:36px 0 8px;scroll-margin-top:84px}
+.sec-head h2{font-size:clamp(24px,4vw,34px);font-weight:800}
+.sec-head p{color:var(--muted);margin:6px 0 0;max-width:62ch}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:18px}
+@media(max-width:960px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.grid{grid-template-columns:1fr 1fr;gap:12px}}
+.gcard{background:var(--panel);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.gcard .preview{height:118px;display:grid;place-items:center;font-size:54px;position:relative}
+.genre{position:absolute;top:10px;left:10px;background:rgba(11,18,32,.78);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:999px;font-family:"Sora",sans-serif}
+.gcard .gbody{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.gcard h3{font-size:18px;font-weight:700}
+.gcard p{color:var(--muted);font-size:13.5px;margin:0;flex:1}
+.card-foot{display:flex;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+.instant{font-size:12px;font-weight:700;color:var(--amber)}
+/* WHY + TEASERS */
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+@media(max-width:900px){.why{grid-template-columns:repeat(2,1fr)}}
+.why .w{background:var(--panel2);border:1px solid var(--line);border-radius:18px;padding:16px}
+.why .w .ic{font-size:26px}
+.why h3{font-size:16px;margin:8px 0 4px}
+.why p{color:var(--muted);font-size:13.5px;margin:0}
+.teaser{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+@media(max-width:900px){.teaser{grid-template-columns:1fr}}
+.tcard{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px;text-decoration:none;color:var(--ink);display:block}
+.tcard:hover{border-color:var(--cyan)}
+.tcard .ic{font-size:28px}
+.tcard h3{font-size:17px;margin-top:8px}
+.tcard p{color:var(--muted);font-size:14px}
+.tcard .go{color:var(--lime);font-weight:700;font-family:"Sora",sans-serif;font-size:14px}
+/* BIG CARDS + STEPS (daily puzzles) */
+.big-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+@media(max-width:760px){.big-cards{grid-template-columns:1fr}}
+.big-card{border-radius:22px;padding:24px;box-shadow:var(--shadow);border:1px solid var(--line)}
+.big-card .scene{font-size:52px}
+.big-card h3{font-size:22px;font-weight:800;margin-top:10px;color:#fff}
+.big-card p{color:rgba(255,255,255,.88);margin:8px 0 0}
+.big-wordle{background:linear-gradient(135deg,#14532d,#15803d 60%,#0e7490)}
+.big-sudoku{background:linear-gradient(135deg,#1e3a5f,#0369a1 60%,#7c3aed)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+@media(max-width:760px){.steps{grid-template-columns:1fr}}
+.step{background:var(--panel2);border:1px solid var(--line);border-radius:18px;padding:18px}
+.step .num{font-family:"Sora",sans-serif;font-weight:800;font-size:24px;color:var(--lime)}
+.step h3{font-size:16px;margin:6px 0 4px}
+.step p{color:var(--muted);font-size:14px;margin:0}
+/* FOOTER */
+.site-footer{margin-top:52px;border-top:1px solid var(--line);background:#0E1830;padding:28px 0 34px}
+.footer-in{max-width:1120px;margin:0 auto;padding:0 16px;text-align:center}
+.footer-brand{font-family:"Sora",sans-serif;font-weight:700;font-size:16px;margin:0}
+.footer-links{margin:12px 0 8px;display:flex;gap:6px 14px;justify-content:center;flex-wrap:wrap}
+.footer-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600}
+.footer-links a:hover{color:var(--ink)}
+.footer-copy{color:var(--muted);font-size:13px;margin:6px 0 0}
+</style>
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YK9C0FMSE0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YK9C0FMSE0');
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zevtuihpb8");
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-in">
+    <a class="brand" href="/" aria-label="BuzzPlay home">
+      <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14" fill="#A3E635"/><path d="M26 20l18 12-18 12z" fill="#0B1220"/></svg>
+      <span class="brand-name">BuzzPlay</span>
+      <span class="badge badge-ar">ARCADE</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">&#9776;</button>
+    <nav class="main-nav" id="mainNav">
+      <a href="/#games">All Games</a>
+      <a href="/daily-puzzles/">Daily Puzzles</a>
+      <a href="/guides/">Game Guides</a>
+      <a href="/about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="page-head">
+      <span class="eyebrow">Daily Puzzles</span>
+      <h1>Your Daily Brain Warm-Up 🏆</h1>
+      <p class="lead">Big game libraries are fun, but a small daily ritual is what keeps your brain sharp. BuzzPlay's Daily Puzzles pair two classics — a word game and a logic grid — into a five-minute habit you can finish with your morning coffee.</p>
+    </section>
+
+    <div class="big-cards">
+      <article class="big-card big-wordle">
+        <div class="scene" aria-hidden="true">🟩</div>
+        <h3>Wordle Unlimited</h3>
+        <p>Guess the hidden five-letter word in six tries. Green means the right letter in the right spot, yellow means it belongs somewhere else. Unlimited rounds mean your daily warm-up can turn into a full streak session.</p>
+        <div class="banner-actions"><a class="btn btn-lime" href="/wordle/">Play Wordle ▶</a></div>
+      </article>
+      <article class="big-card big-sudoku">
+        <div class="scene" aria-hidden="true">🧩</div>
+        <h3>Sudoku</h3>
+        <p>Fill the 9×9 grid so every row, column and 3×3 box holds the digits 1–9 exactly once. No math and no guessing — just clean, satisfying logic from the first scan to the final cell.</p>
+        <div class="banner-actions"><a class="btn btn-cyan" href="/sudoku/">Play Sudoku ▶</a></div>
+      </article>
+    </div>
+
+    <section class="block" aria-label="How daily puzzles work">
+      <div class="sec-head">
+        <h2>How It Works</h2>
+        <p>Three steps, zero setup — that is the whole system.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="num">1</div><h3>Pick Your Puzzle</h3><p>Words or numbers? Start with Wordle for a quick win, or settle in with Sudoku for a deeper think.</p></div>
+        <div class="step"><div class="num">2</div><h3>Play in Your Browser</h3><p>No download and no sign-up. Both puzzles open instantly and play just as well on a phone as on a laptop.</p></div>
+        <div class="step"><div class="num">3</div><h3>Come Back Tomorrow</h3><p>A fresh challenge is waiting every day. Your progress saves in your browser, so your streak is always right where you left it.</p></div>
+      </div>
+    </section>
+
+    <section class="block" aria-label="More games">
+      <div class="sec-head">
+        <h2>Want More Than Puzzles?</h2>
+        <p>When the daily pair is done, the full arcade is open — a farm tycoon, chess against the computer, 2048, Snake and more.</p>
+      </div>
+      <div class="banner-actions" style="margin-top:14px"><a class="btn btn-lime" href="/#games">Browse All Games →</a><a class="btn btn-violet" href="/guides/">Read Game Guides →</a></div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-in">
+    <p class="footer-brand">BuzzPlay — A NumberBuzz USA Entertainment Hub</p>
+    <nav class="footer-links">
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/disclaimer.html">Disclaimer</a>
+    </nav>
+    <p class="footer-copy">© 2026 BuzzPlay USA. All rights reserved.</p>
+  </div>
+</footer>
+<script>
+document.querySelector('.nav-toggle').addEventListener('click',function(){var n=document.getElementById('mainNav');var open=n.classList.toggle('open');this.setAttribute('aria-expanded',open);});
+</script>
+
+</body>
+</html>
