@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="color-scheme" content="dark"/>
+<meta name="description" content="Play chess online free against the computer — full rules with castling, en passant and pawn promotion, tap-to-move board and a saved win/loss record. No download. Tips, strategy and FAQ."/>
+<link rel="canonical" href="https://play.numberbuzzusa.xyz/chess/"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B1220'/%3E%3Cpath d='M26 20 L48 32 L26 44 Z' fill='%23A3E635'/%3E%3C/svg%3E"/>
+<title>Play Chess Online Free vs Computer — No Download | BuzzPlay USA</title>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5963284443577039" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+button,[role="button"],select,summary,input:not([type="checkbox"],[type="radio"]){min-height:2rem}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+:root{--bg:#f4f7ee;--surface:#ffffff;--surface2:#eef3e2;--ink:#18230f;--muted:#5a6b4e;--line:#d9e2c8;--green:#2f7d32;--green2:#43a047;--lime:#8bc34a;--amber:#f5a623;--amber2:#ffca28;--red:#e53935;--blue:#1e88e5;--navy:#14240f;--shadow:0 10px 30px rgba(20,36,15,.12);--radius:18px;color-scheme:light}
+@media(prefers-color-scheme:dark){:root{--bg:#0f160c;--surface:#1a2614;--surface2:#223118;--ink:#eef5e2;--muted:#a8bc96;--line:#33452a;--green:#66bb6a;--green2:#81c784;--navy:#0a1207;--shadow:0 10px 30px rgba(0,0,0,.45);color-scheme:dark}}
+body{margin:0;font-family:"Nunito Sans",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+h1,h2,h3,.disp{font-family:"Fredoka",sans-serif;line-height:1.1;margin:0}
+a{color:var(--green)}button{font-family:inherit;cursor:pointer}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+/* TOP BAR */
+.topbar{position:sticky;top:0;z-index:50;background:var(--navy);color:#fff}
+.topbar-in{max-width:1120px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font-family:"Fredoka";font-size:22px;font-weight:700;letter-spacing:.2px}
+.logo-badge{width:40px;height:40px;border-radius:11px;background:var(--amber);display:grid;place-items:center;font-size:22px}
+.logo small{display:block;font-family:"Nunito Sans";font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#cfe6b8}
+.topnav{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.topnav a{color:#e8f3d8;text-decoration:none;font-weight:800;font-size:13.5px;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.22)}
+.topnav a:hover{background:rgba(255,255,255,.12)}
+/* HERO */
+.hero{background:var(--navy);color:#fff;padding:28px 0 34px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:center}
+@media(max-width:760px){.hero-grid{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(34px,6vw,56px);font-weight:700}
+.hero h1 em{font-style:normal;color:var(--amber2)}
+.hero p.lead{color:#d7e8c2;font-size:17px;max-width:52ch;margin:12px 0 0}
+.hero-stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.hstat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:10px 14px}
+.hstat b{display:block;font-family:"Fredoka";font-size:20px}.hstat span{font-size:12px;color:#bcd6a2;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.hero-art{background:#1e3316;border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:18px;text-align:center}
+.hero-art .scene{font-size:52px;line-height:1.25;letter-spacing:4px}
+.hero-art p{color:#cfe6b8;font-size:13.5px;margin:8px 0 0;font-weight:700}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:999px;padding:12px 22px;font-weight:900;font-size:15px;text-decoration:none}
+.btn-amber{background:var(--amber);color:#231a00}.btn-green{background:var(--green);color:#fff}.btn-ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+/* SECTIONS */
+section.block{padding:30px 0 6px;scroll-margin-top:84px}
+@media(max-width:760px){section.block{scroll-margin-top:136px}.topnav{flex-wrap:nowrap;overflow-x:auto;margin-left:0;width:100%;padding-bottom:4px;scrollbar-width:none}.topnav::-webkit-scrollbar{display:none}.topnav a{white-space:nowrap;flex:0 0 auto}}
+.panel.flash{animation:panelFlash 1.6s ease}
+@keyframes panelFlash{0%{box-shadow:0 0 0 4px var(--amber),var(--shadow)}100%{box-shadow:0 0 0 0 rgba(245,166,35,0),var(--shadow)}}
+@media(prefers-reduced-motion:reduce){.panel.flash{animation:none}html{scroll-behavior:auto}}
+.sec-head{display:flex;align-items:end;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.sec-head h2{font-size:clamp(24px,4vw,34px)}
+.sec-head p{color:var(--muted);margin:4px 0 0;max-width:60ch}
+.pill{display:inline-block;background:var(--amber);color:#231a00;font-weight:900;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
+/* GAME GRID */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:460px){.grid{grid-template-columns:1fr 1fr;gap:10px}}
+.gcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px}
+.gcard .ic{font-size:38px;line-height:1}
+.gcard h3{font-size:19px}
+.gcard p{color:var(--muted);font-size:13.5px;margin:0;flex:1}
+.gcard .meta{font-size:12px;font-weight:800;color:var(--green)}
+.gcard.featured{border:2px solid var(--amber)}
+.soon{opacity:.92}.soon .tag{align-self:flex-start;background:var(--surface2);border:1px dashed var(--muted);color:var(--muted);font-weight:900;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:999px}
+/* PANELS */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:20px}
+@media(max-width:560px){.panel{padding:14px}}
+/* FARM */
+.resbar{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:14px}
+@media(max-width:800px){.resbar{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:420px){.resbar{grid-template-columns:repeat(2,1fr)}}
+.res{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
+.res b{display:block;font-family:"Fredoka";font-size:19px}.res span{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.farm-scene{background:linear-gradient(180deg,#bfe3ff 0 55%,#a5d68a 55% 100%);border-radius:16px;padding:16px 10px;text-align:center;font-size:34px;line-height:1.5;letter-spacing:2px;border:1px solid var(--line);margin-bottom:14px;overflow:hidden;word-break:break-all}
+@media(prefers-color-scheme:dark){.farm-scene{background:linear-gradient(180deg,#27435f 0 55%,#2c4a22 55% 100%)}}
+.farm-cols{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
+@media(max-width:820px){.farm-cols{grid-template-columns:1fr}}
+.shop-item{display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:10px;background:var(--surface)}
+.shop-item .si{font-size:32px}.shop-item .info{flex:1;min-width:0}
+.shop-item h4{margin:0;font-family:"Fredoka";font-size:17px}.shop-item p{margin:2px 0 0;color:var(--muted);font-size:13px}
+.shop-item .own{font-weight:900;color:var(--green);font-size:13px}
+.buy-btn{background:var(--green);color:#fff;border:none;border-radius:999px;padding:10px 14px;font-weight:900;white-space:nowrap}
+.buy-btn:disabled{background:var(--surface2);color:var(--muted)}
+.lock-note{font-size:12.5px;font-weight:800;color:#b26a00;background:#fff4d6;border-radius:8px;padding:6px 9px;margin-top:6px;display:inline-block}
+@media(prefers-color-scheme:dark){.lock-note{background:#3a2f10;color:#ffca28}}
+.sell-row{display:flex;flex-wrap:wrap;gap:8px}
+.sell-btn{flex:1 1 46%;background:var(--surface2);border:1.5px solid var(--line);border-radius:12px;padding:10px;font-weight:900;color:var(--ink)}
+.sell-btn:hover{border-color:var(--green)}
+.empire-box{background:var(--navy);color:#fff;border-radius:14px;padding:14px;text-align:center;margin-top:12px}
+.empire-box b{font-family:"Fredoka";font-size:26px;color:var(--amber2);display:block}
+.empire-box span{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#cfe6b8}
+/* TTT */
+.ttt-board{display:grid;grid-template-columns:repeat(3,92px);gap:8px;justify-content:center;margin:14px auto}
+@media(max-width:380px){.ttt-board{grid-template-columns:repeat(3,80px)}}
+.ttt-cell{aspect-ratio:1;border-radius:14px;border:2px solid var(--line);background:var(--surface2);font-family:"Fredoka";font-size:38px;font-weight:700;color:var(--ink)}
+.ttt-cell.win{background:var(--amber);color:#231a00;border-color:var(--amber)}
+.seg{display:inline-flex;background:var(--surface2);border:1px solid var(--line);border-radius:999px;padding:4px;gap:4px;flex-wrap:wrap}
+.seg button{border:none;background:transparent;border-radius:999px;padding:8px 14px;font-weight:900;color:var(--muted)}
+.seg button.on{background:var(--green);color:#fff}
+.status-line{text-align:center;font-weight:900;font-size:17px;min-height:26px}
+.tally{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+.tally div{background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:8px 14px;font-weight:800;font-size:13.5px}
+/* MEMORY */
+.mem-grid{display:grid;gap:8px;justify-content:center;margin:14px auto;max-width:520px}
+.mem-grid.c4{grid-template-columns:repeat(4,1fr)}
+.mem-grid.c6{grid-template-columns:repeat(6,1fr)}
+.mtile{aspect-ratio:1;border-radius:12px;border:2px solid var(--line);background:var(--green);font-size:clamp(20px,5vw,34px);display:grid;place-items:center;cursor:pointer;color:transparent;user-select:none;padding:0}
+.mtile::after{content:"?";color:#fff;font-family:"Fredoka";font-weight:700}
+.mtile.flip{background:var(--surface2);color:var(--ink)}.mtile.flip::after{content:""}
+.mtile.done{background:#fff4d6;border-color:var(--amber);color:var(--ink);cursor:default}.mtile.done::after{content:""}
+@media(prefers-color-scheme:dark){.mtile.done{background:#3a2f10}}
+/* SNAKE */
+.snake-wrap{text-align:center}
+canvas#snakeCanvas{background:#14240f;border-radius:14px;border:2px solid var(--line);max-width:100%;height:auto;touch-action:none}
+.dpad{display:grid;grid-template-columns:repeat(3,56px);gap:6px;justify-content:center;margin-top:12px}
+.dpad button{height:52px;border-radius:12px;border:2px solid var(--line);background:var(--surface2);font-size:20px;color:var(--ink)}
+.dpad .sp{visibility:hidden}
+/* 2048 */
+.board2048{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;background:#bbada0;border-radius:14px;padding:8px;max-width:400px;margin:14px auto;touch-action:none}
+@media(prefers-color-scheme:dark){.board2048{background:#4a4036}}
+.tile2048{aspect-ratio:1;border-radius:10px;background:rgba(238,228,218,.35);display:grid;place-items:center;font-family:"Fredoka",sans-serif;font-weight:700;font-size:clamp(20px,6vw,34px);color:#776e65;user-select:none}
+.tile2048.v2{background:#eee4da}.tile2048.v4{background:#ede0c8}.tile2048.v8{background:#f2b179;color:#fff}.tile2048.v16{background:#f59563;color:#fff}.tile2048.v32{background:#f67c5f;color:#fff}.tile2048.v64{background:#f65e3b;color:#fff}.tile2048.v128{background:#edcf72;color:#fff;font-size:clamp(18px,5vw,28px)}.tile2048.v256{background:#edcc61;color:#fff;font-size:clamp(18px,5vw,28px)}.tile2048.v512{background:#edc850;color:#fff;font-size:clamp(18px,5vw,28px)}.tile2048.v1024{background:#edc53f;color:#fff;font-size:clamp(15px,4.5vw,24px)}.tile2048.v2048{background:#edc22e;color:#fff;font-size:clamp(15px,4.5vw,24px);box-shadow:0 0 0 3px var(--amber2),0 6px 18px rgba(0,0,0,.25)}.tile2048.vbig{background:#3c3a32;color:#fff;font-size:clamp(15px,4.5vw,24px)}
+/* WORDLE */
+.wordle-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;max-width:300px;margin:14px auto}
+.wtile{aspect-ratio:1;border:2px solid var(--line);border-radius:8px;display:grid;place-items:center;font-family:"Fredoka",sans-serif;font-weight:700;font-size:clamp(22px,6vw,32px);text-transform:uppercase;background:var(--surface);color:var(--ink);user-select:none}
+.wtile.filled{border-color:var(--muted)}
+.wtile.correct{background:#6aaa64;border-color:#6aaa64;color:#fff}.wtile.present{background:#c9b458;border-color:#c9b458;color:#fff}.wtile.absent{background:#787c7e;border-color:#787c7e;color:#fff}
+.wordle-kb{max-width:500px;margin:14px auto 0;display:flex;flex-direction:column;gap:6px}
+.kb-row{display:flex;gap:5px;justify-content:center}
+.kb-key{flex:1 1 0;max-width:42px;min-height:52px;border:none;border-radius:8px;background:var(--surface2);border:1px solid var(--line);color:var(--ink);font-weight:900;font-size:15px;padding:0 2px;text-transform:uppercase}
+.kb-key.wide{flex:1.6 1 0;max-width:68px;font-size:12px}
+.kb-key.correct{background:#6aaa64;border-color:#6aaa64;color:#fff}.kb-key.present{background:#c9b458;border-color:#c9b458;color:#fff}.kb-key.absent{background:#787c7e;border-color:#787c7e;color:#fff;opacity:.75}
+@media(max-width:380px){.kb-key{min-height:48px;font-size:13px}.kb-key.wide{font-size:10px}}
+/* SUDOKU */
+.sudoku-board{display:grid;grid-template-columns:repeat(9,1fr);gap:0;max-width:450px;margin:14px auto;border:3px solid var(--ink);border-radius:10px;overflow:hidden;background:var(--ink)}
+.scell{aspect-ratio:1;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface);display:grid;place-items:center;font-family:"Fredoka",sans-serif;font-weight:600;font-size:clamp(18px,5vw,26px);color:var(--blue);cursor:pointer;user-select:none;padding:0;min-height:0;position:relative;line-height:1}
+.scell:nth-child(9n){border-right:none}
+.scell.br{border-right:2.5px solid var(--ink)}
+.scell.bb{border-bottom:2.5px solid var(--ink)}
+.scell.given{color:var(--ink);font-weight:700;background:var(--surface2)}
+.scell.related{background:#e8f0fe}
+@media(prefers-color-scheme:dark){.scell.related{background:#243447}}
+.scell.same{background:#cfe0ff}
+@media(prefers-color-scheme:dark){.scell.same{background:#2f4a6a}}
+.scell.sel{background:var(--amber2)!important;color:#231a00;box-shadow:inset 0 0 0 2px var(--amber)}
+.scell.wrong{color:#fff!important;background:var(--red)!important}
+.scell .notes{display:grid;grid-template-columns:repeat(3,1fr);width:100%;height:100%;padding:2px}
+.scell .notes span{font-size:clamp(8px,2vw,11px);font-family:"Nunito Sans",sans-serif;font-weight:700;color:var(--muted);display:grid;place-items:center;line-height:1}
+.sudoku-pad{display:grid;grid-template-columns:repeat(9,1fr);gap:6px;max-width:450px;margin:10px auto 0}
+@media(max-width:460px){.sudoku-pad{grid-template-columns:repeat(5,1fr)}}
+.sudoku-pad button{min-height:52px;border-radius:10px;border:2px solid var(--line);background:var(--surface2);color:var(--ink);font-family:"Fredoka",sans-serif;font-size:22px;font-weight:700}
+.sudoku-pad button:active{background:var(--amber2)}
+.sudoku-tools{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.sudoku-tools button{border-radius:999px;padding:10px 16px;font-weight:900;border:2px solid var(--line);background:var(--surface);color:var(--ink)}
+.sudoku-tools button.on{background:var(--green);color:#fff;border-color:var(--green)}
+/* CHESS */
+.chess-wrap{max-width:480px;margin:0 auto}
+.chess-board{display:grid;grid-template-columns:repeat(8,1fr);border:3px solid #5d4037;border-radius:10px;overflow:hidden;touch-action:manipulation}
+.ccell{aspect-ratio:1;display:grid;place-items:center;font-size:clamp(26px,7.5vw,44px);line-height:1;cursor:pointer;user-select:none;padding:0;border:none;min-height:0;position:relative}
+.ccell.light{background:#f0d9b5}.ccell.dark{background:#b58863}
+.ccell.sel{box-shadow:inset 0 0 0 4px var(--amber),inset 0 0 0 6px rgba(0,0,0,.15);background:#f7ec6a!important}
+.ccell.last{background:#e8d88a!important}
+.ccell.dark.last{background:#cbb26a!important}
+.ccell.check{background:#e57373!important}
+.ccell.hint::after{content:"";width:32%;height:32%;border-radius:50%;background:rgba(20,60,20,.35);position:absolute}
+.ccell.hintcap{box-shadow:inset 0 0 0 4px rgba(180,30,30,.55)}
+.ccell .wp{color:#fff;text-shadow:0 1px 2px #000,0 0 3px #000}
+.ccell .bp{color:#111;text-shadow:0 1px 1px rgba(255,255,255,.4)}
+.captured-row{display:flex;align-items:center;gap:6px;min-height:30px;flex-wrap:wrap;font-size:22px;line-height:1.2}
+.captured-row .lbl{font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+/* FOOTER / PAGES */
+footer{margin-top:44px;background:var(--navy);color:#d7e8c2;padding:30px 0 20px}
+footer h3{color:#fff}
+.foot-links{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.foot-links button{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:9px 16px;font-weight:800}
+.page-view{display:none;background:var(--surface);border-top:4px solid var(--amber)}
+.page-view.open{display:block}
+.page-view .wrap{padding:28px 16px 36px}
+.page-view h2{font-size:30px;margin-bottom:10px}
+.page-view p,.page-view li{color:var(--muted)}
+/* MODAL */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;place-items:center;z-index:100;padding:16px}
+.modal.open{display:grid}
+.modal-box{background:var(--surface);border-radius:18px;padding:22px;max-width:420px;width:100%;box-shadow:var(--shadow)}
+.toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%) translateY(80px);background:var(--navy);color:#fff;padding:12px 20px;border-radius:999px;font-weight:800;z-index:120;transition:transform .3s;max-width:92vw;text-align:center}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.center{text-align:center}.mt{margin-top:14px}.small{font-size:13px;color:var(--muted)}
+
+/* ===== BuzzPlay dedicated-page dark arcade theme (overrides) ===== */
+:root{--bg:#0B1220;--surface:#16233A;--surface2:#1E2E4A;--ink:#E8EEF7;--muted:#94A7C4;--line:#2A3C5F;--green:#A3E635;--green2:#BEF264;--amber:#FBBF24;--amber2:#FBBF24;--red:#F87171;--blue:#22D3EE;--navy:#0B1220;--shadow:0 12px 32px rgba(0,0,0,.45);color-scheme:dark}
+body{font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;background:#0B1220;color:#E8EEF7}
+h1,h2,h3,.disp{font-family:"Sora",sans-serif}
+a{color:#22D3EE}
+.btn-green{background:#A3E635;color:#0B1220}
+.btn-green:hover{background:#BEF264}
+.btn-ghost{background:transparent;color:#E8EEF7;border:2px solid #2A3C5F}
+.pill{background:#8B5CF6;color:#fff}
+.scell.related{background:#243447}.scell.same{background:#2f4a6a}
+.mtile.done{background:#3a2f10}
+.lock-note{background:#3a2f10;color:#FBBF24}
+.sec-head p{color:#94A7C4}
+footer{background:#0B1220;color:#94A7C4}
+/* header */
+.bp-header{position:sticky;top:0;z-index:60;background:rgba(9,14,26,.94);border-bottom:1px solid #2A3C5F}
+.bp-header-in{max-width:1120px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:12px;position:relative}
+.bp-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#E8EEF7;font-family:"Sora",sans-serif;font-weight:800;font-size:22px;letter-spacing:.2px}
+.bp-badge{background:#8B5CF6;color:#fff;font-family:"Inter",sans-serif;font-size:10.5px;font-weight:800;letter-spacing:.12em;padding:4px 9px;border-radius:999px}
+.bp-nav{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.bp-nav a{color:#E8EEF7;text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:999px;border:1px solid #2A3C5F}
+.bp-nav a:hover{background:#16233A;border-color:#A3E635}
+.bp-burger{display:none;margin-left:auto;background:#16233A;border:1px solid #2A3C5F;color:#E8EEF7;border-radius:10px;font-size:19px;line-height:1;padding:8px 13px;cursor:pointer}
+@media(max-width:760px){.bp-burger{display:block}.bp-nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:8px;background:#0B1220;padding:14px 16px;border-bottom:1px solid #2A3C5F;margin-left:0}.bp-nav.open{display:flex}}
+/* page structure */
+.crumbs{font-size:13px;color:#94A7C4;margin:20px 0 0;font-weight:600}
+.crumbs a{color:#22D3EE;text-decoration:none}
+.page-h1{font-size:clamp(30px,5.4vw,44px);font-weight:800;margin:10px 0 0}
+.tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.gtag{display:inline-block;font-weight:800;font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;padding:5px 11px;border-radius:999px;border:1px solid #2A3C5F;color:#94A7C4}
+.gtag.genre{background:#8B5CF6;border-color:#8B5CF6;color:#fff}
+.gtag.instant{background:#A3E635;border-color:#A3E635;color:#0B1220}
+.intro{color:#C4D2E8;font-size:16.5px;max-width:68ch;margin:12px 0 0}
+.arcade-frame{background:linear-gradient(150deg,rgba(163,230,53,.5),rgba(139,92,246,.5) 55%,rgba(34,211,238,.5));padding:3px;border-radius:24px;margin-top:20px}
+.arcade-frame-in{background:#0D1830;border-radius:21px;padding:2px 16px 16px}
+.arcade-frame section.block{padding:16px 0 2px;scroll-margin-top:0}
+@media(max-width:560px){.arcade-frame-in{padding:2px 8px 10px}}
+/* guide */
+.guide{margin-top:36px;background:#16233A;border:1px solid #2A3C5F;border-radius:20px;padding:26px;box-shadow:var(--shadow)}
+@media(max-width:560px){.guide{padding:18px}}
+.guide h2{font-size:clamp(22px,3.6vw,29px);margin:26px 0 10px}
+.guide h2:first-child{margin-top:0}
+.guide p,.guide li{color:#C4D2E8;font-size:15.5px}
+.guide ol,.guide ul{padding-left:22px;margin:8px 0}
+.guide li{margin:7px 0}
+.guide strong{color:#E8EEF7}
+.faq-item{border-top:1px solid #2A3C5F;padding:15px 0 5px}
+.faq-item h3{font-size:17px;margin:0 0 6px;color:#E8EEF7}
+.faq-item p{margin:0 0 10px}
+/* more games */
+.more-h{font-size:clamp(22px,3.6vw,29px);margin:36px 0 14px}
+.more-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:760px){.more-grid{grid-template-columns:1fr}}
+.more-card{background:#16233A;border:1px solid #2A3C5F;border-radius:18px;padding:18px;text-decoration:none;color:#E8EEF7;display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow)}
+.more-card:hover{border-color:#A3E635}
+.more-card .ic{font-size:36px;line-height:1}
+.more-card h3{font-size:19px;margin:0}
+.more-card p{color:#94A7C4;font-size:13.5px;margin:0;flex:1}
+.play-btn{align-self:flex-start;background:#A3E635;color:#0B1220;font-weight:800;font-size:14px;padding:9px 16px;border-radius:999px}
+/* footer */
+.bp-footer{margin-top:48px;background:#0B1220;border-top:1px solid #2A3C5F;color:#94A7C4;padding:30px 0 24px}
+.bp-foot-brand{font-family:"Sora",sans-serif;font-weight:800;color:#E8EEF7;font-size:18px;margin:0}
+.bp-foot-links{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 6px}
+.bp-foot-links a{color:#E8EEF7;text-decoration:none;background:rgba(255,255,255,.06);border:1px solid #2A3C5F;border-radius:999px;padding:9px 16px;font-weight:700;font-size:14px}
+.bp-foot-links a:hover{border-color:#A3E635}
+.bp-foot-copy{font-size:13px;color:#94A7C4;margin:10px 0 0}
+</style>
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YK9C0FMSE0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YK9C0FMSE0');
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zevtuihpb8");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is chess free to play against the computer here?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Chess vs Computer is completely free on BuzzPlay USA — no download, no account and no sign-up. The whole game runs in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which colour do I play?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You always play White, so you make the first move of every game. The computer plays Black and replies after each of your moves."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this chess game support castling, en passant and promotion?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, all three. Castling and en passant follow the standard rules, and a pawn that reaches the far end of the board is promoted automatically to a queen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does my win and loss record save?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Your wins, losses and draws against the computer are tallied and stored in your own browser on your device, ready for your next session. Clearing browser data resets the record."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I play chess on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The board is fully tap-based — tap a piece, then tap a highlighted square — and is sized to work comfortably on phone screens as well as tablets and computers."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="toast" id="toast" role="status"></div>
+<header class="bp-header"><div class="bp-header-in">
+  <a class="bp-logo" href="/"><svg width="40" height="40" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#A3E635"/><path d="M26 20 L48 32 L26 44 Z" fill="#0B1220"/></svg><span>BuzzPlay</span><span class="bp-badge">ARCADE</span></a>
+  <button class="bp-burger" id="bpBurger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
+  <nav class="bp-nav" id="bpNav">
+    <a href="/#games">All Games</a><a href="/daily-puzzles/">Daily Puzzles</a><a href="/guides/">Game Guides</a><a href="/about.html">About</a>
+  </nav>
+</div></header>
+<main class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/#games">Games</a> / Chess vs Computer</nav>
+  <h1 class="page-h1">Play Chess Online Free vs Computer</h1>
+  <div class="tagrow"><span class="gtag genre">Strategy</span><span class="gtag instant">⚡ Instant Play</span><span class="gtag">No Download</span><span class="gtag">100% Free</span></div>
+  <p class="intro">A complete game of chess against the computer, right in your browser. You play White with the full rule set — castling, en passant and pawn promotion included — on a tap-friendly board that shows legal moves, captures and check at a glance. Your wins, losses and draws are tallied automatically, so you can track your progress game after game.</p>
+  <div class="arcade-frame"><div class="arcade-frame-in">
+<section class="block" id="game-chess">
+  <div class="sec-head"><div><h2>♟️ Chess vs Computer</h2><p>Full chess — castling, en passant and pawn promotion (auto-queen) included. You play White: tap one of your pieces, then tap a highlighted square to move. The computer replies as Black. Your win / loss / draw record saves automatically.</p></div></div>
+  <div class="panel">
+    <div class="chess-wrap">
+      <div class="captured-row" aria-label="Pieces captured by computer"><span class="lbl">Black captured:</span><span id="capturedByBlack"></span></div>
+      <div class="chess-board" id="chessBoard" aria-label="Chess board"></div>
+      <div class="captured-row" aria-label="Pieces captured by you"><span class="lbl">You captured:</span><span id="capturedByWhite"></span></div>
+      <p class="status-line mt" id="chessStatus">Your move — you are White ♔</p>
+      <div class="center mt"><button class="btn btn-green" id="chessNew" type="button">↺ New Game</button></div>
+      <div class="tally">
+        <div>🏆 Wins: <b id="chessWins">0</b></div><div>💔 Losses: <b id="chessLosses">0</b></div><div>🤝 Draws: <b id="chessDraws">0</b></div>
+      </div>
+      <p class="small center mt">Tip: a dot marks a legal move, a red ring marks a capture. Your king flashes red when in check.</p>
+    </div>
+  </div>
+</section>
+  </div></div>
+
+  <section class="guide" id="guide">
+    <h2>How to Play Chess vs Computer</h2>
+    <ol>
+        <li>You play White and always move first. Tap one of your pieces to select it: legal moves appear as dots on empty squares and red rings around pieces you can capture.</li>
+        <li>Tap a highlighted square to complete the move. The computer then thinks briefly and replies as Black.</li>
+        <li>Captured pieces are displayed in the rows beside the board, so you can always see the material balance — what you have captured and what you have lost.</li>
+        <li>All special moves are supported: castle by moving your king two squares toward a rook, capture en passant when an enemy pawn passes yours, and pawns that reach the last rank promote automatically to a queen.</li>
+        <li>Your king flashes red when it is in check, and you must get out of check on your move. The game ends with checkmate, stalemate or a draw.</li>
+        <li>Tap New Game at any time to resign and start fresh. Your record — wins, losses and draws — saves automatically in your browser.</li>
+    </ol>
+    <h2>Pro Winning Tips</h2>
+    <ul>
+        <li><strong>Fight for the center.</strong> Open by pushing a central pawn (e4 or d4) and aim your pieces at the four middle squares — central control gives your army room to move and restricts the computer.</li>
+        <li><strong>Develop before you attack.</strong> Bring knights and bishops out, then castle, before launching anything ambitious. An attack with two pieces against a full army almost always fails.</li>
+        <li><strong>Castle early.</strong> Castling tucks your king behind a wall of pawns and connects your rooks in one move. Delaying it is the most common beginner mistake.</li>
+        <li><strong>Check before every move: "what does that square attack?"</strong> Most games at this level are decided by pieces left hanging. Before you confirm a move, make sure the landing square is not simply defended by an enemy piece.</li>
+        <li><strong>Keep knights central.</strong> A knight in the middle attacks up to eight squares; a knight stranded on the rim attacks as few as two. "A knight on the rim is dim" is a cliché because it is true.</li>
+        <li><strong>Trade when you are ahead, refuse when you are behind.</strong> If you are up material, exchanging pieces simplifies toward a winning endgame. If you are down, keep pieces on and complicate.</li>
+    </ul>
+    <h2>Chess vs Computer Strategy</h2>
+    <p>Beating the computer consistently is less about brilliance than about not blundering. The engine plays a solid, club-style game: it develops sensibly, grabs free material instantly and punishes loose pieces, but it will not out-calculate a careful human over a long game. Use the standard material values — pawn 1, knight and bishop 3, rook 5, queen 9 — and glance at the captured rows before any exchange to be sure the trade favours you. In the opening, follow the classic recipe: one or two central pawn moves, knights before bishops, castle by move ten, and connect your rooks. In the middlegame, improve your worst-placed piece and look for simple tactics — forks (one piece attacking two), pins (a piece that cannot move without exposing something bigger) and discovered attacks decide most games. When you win a piece, switch to simplification mode: offer queen trades, exchange rooks, and march the extra material home. In the endgame, activate your king — it becomes a fighting piece once the queens are gone — and push passed pawns with king support. Played patiently, this no-nonsense approach wins far more games than flashy sacrifices that the computer will simply refute.</p>
+    <h2>Frequently Asked Questions</h2>
+      <div class="faq-item"><h3>Is chess free to play against the computer here?</h3><p>Yes. Chess vs Computer is completely free on BuzzPlay USA — no download, no account and no sign-up. The whole game runs in your browser.</p></div>
+      <div class="faq-item"><h3>Which colour do I play?</h3><p>You always play White, so you make the first move of every game. The computer plays Black and replies after each of your moves.</p></div>
+      <div class="faq-item"><h3>Does this chess game support castling, en passant and promotion?</h3><p>Yes, all three. Castling and en passant follow the standard rules, and a pawn that reaches the far end of the board is promoted automatically to a queen.</p></div>
+      <div class="faq-item"><h3>Does my win and loss record save?</h3><p>Yes. Your wins, losses and draws against the computer are tallied and stored in your own browser on your device, ready for your next session. Clearing browser data resets the record.</p></div>
+      <div class="faq-item"><h3>Can I play chess on my phone?</h3><p>Yes. The board is fully tap-based — tap a piece, then tap a highlighted square — and is sized to work comfortably on phone screens as well as tablets and computers.</p></div>
+  </section>
+
+  <h2 class="more-h">More Games You'll Love</h2>
+  <div class="more-grid">
+      <a class="more-card" href="/2048/"><span class="ic">🔢</span><h3>2048</h3><p>Slide and merge numbered tiles to reach the legendary 2048 tile.</p><span class="play-btn">Play Now ▶</span></a>
+      <a class="more-card" href="/wordle/"><span class="ic">🔤</span><h3>Wordle Unlimited</h3><p>Guess the hidden 5-letter word in 6 tries — unlimited rounds, streaks saved.</p><span class="play-btn">Play Now ▶</span></a>
+      <a class="more-card" href="/sudoku/"><span class="ic">🔲</span><h3>Sudoku</h3><p>Fresh logic puzzles on Easy, Medium and Hard, with notes mode and a timer.</p><span class="play-btn">Play Now ▶</span></a>
+  </div>
+</main>
+<footer class="bp-footer"><div class="wrap">
+  <p class="bp-foot-brand">🎮 BuzzPlay — A NumberBuzz USA Entertainment Hub</p>
+  <p style="margin:6px 0 0;max-width:62ch">Free online browser games — play instantly on phone, tablet or computer at <strong>play.numberbuzzusa.xyz</strong>. No downloads, no sign-ups, just games. Scores save in your own browser only.</p>
+  <div class="bp-foot-links">
+    <a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy-policy.html">Privacy Policy</a><a href="/terms.html">Terms</a><a href="/disclaimer.html">Disclaimer</a>
+  </div>
+  <p class="bp-foot-copy">© 2026 BuzzPlay USA. All rights reserved.</p>
+</div></footer>
+<script>
+(function(){var b=document.getElementById("bpBurger"),n=document.getElementById("bpNav");if(!b||!n)return;b.addEventListener("click",function(){var o=n.classList.toggle("open");b.setAttribute("aria-expanded",o?"true":"false")});})();
+</script>
+<script>
+"use strict";
+var $=function(id){return document.getElementById(id)};
+function toast(msg){var t=$("toast");t.textContent=msg;t.classList.add("show");clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove("show")},2600)}
+function fmt(n){n=Math.floor(n);if(n>=1e6)return (n/1e6).toFixed(2)+"M";if(n>=1e4)return (n/1e3).toFixed(1)+"K";return n.toLocaleString("en-US")}
+function save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function load(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+
+/* ================= CHESS vs COMPUTER ================= */
+var CH_VAL={p:100,n:320,b:330,r:500,q:900,k:20000};
+var CH_GLYPH={wk:"♔",wq:"♕",wr:"♖",wb:"♗",wn:"♘",wp:"♙",bk:"♚",bq:"♛",br:"♜",bb:"♝",bn:"♞",bp:"♟"};
+var CH_PST={
+ p:[[0,0,0,0,0,0,0,0],[50,50,50,50,50,50,50,50],[10,10,20,30,30,20,10,10],[5,5,10,25,25,10,5,5],[0,0,0,20,20,0,0,0],[5,-5,-10,0,0,-10,-5,5],[5,10,10,-20,-20,10,10,5],[0,0,0,0,0,0,0,0]],
+ n:[[-50,-40,-30,-30,-30,-30,-40,-50],[-40,-20,0,0,0,0,-20,-40],[-30,0,10,15,15,10,0,-30],[-30,5,15,20,20,15,5,-30],[-30,0,15,20,20,15,0,-30],[-30,5,10,15,15,10,5,-30],[-40,-20,0,5,5,0,-20,-40],[-50,-40,-30,-30,-30,-30,-40,-50]],
+ b:[[-20,-10,-10,-10,-10,-10,-10,-20],[-10,0,0,0,0,0,0,-10],[-10,0,5,10,10,5,0,-10],[-10,5,5,10,10,5,5,-10],[-10,0,10,10,10,10,0,-10],[-10,10,10,10,10,10,10,-10],[-10,5,0,0,0,0,5,-10],[-20,-10,-10,-10,-10,-10,-10,-20]],
+ r:[[0,0,0,0,0,0,0,0],[5,10,10,10,10,10,10,5],[-5,0,0,0,0,0,0,-5],[-5,0,0,0,0,0,0,-5],[-5,0,0,0,0,0,0,-5],[-5,0,0,0,0,0,0,-5],[-5,0,0,0,0,0,0,-5],[0,0,0,5,5,0,0,0]],
+ q:[[-20,-10,-10,-5,-5,-10,-10,-20],[-10,0,0,0,0,0,0,-10],[-10,0,5,5,5,5,0,-10],[-5,0,5,5,5,5,0,-5],[0,0,5,5,5,5,0,-5],[-10,5,5,5,5,5,0,-10],[-10,0,5,0,0,0,0,-10],[-20,-10,-10,-5,-5,-10,-10,-20]],
+ k:[[-30,-40,-40,-50,-50,-40,-40,-30],[-30,-40,-40,-50,-50,-40,-40,-30],[-30,-40,-40,-50,-50,-40,-40,-30],[-30,-40,-40,-50,-50,-40,-40,-30],[-20,-30,-30,-40,-40,-30,-30,-20],[-10,-20,-20,-20,-20,-20,-20,-10],[20,20,0,0,0,0,20,20],[20,30,10,0,0,10,30,20]]
+};
+var chessRecord=load("buzzplay_chess_record",{w:0,l:0,d:0});
+var chess=null;
+function chessNewState(){
+ var b=[];for(var r=0;r<8;r++){b.push([null,null,null,null,null,null,null,null])}
+ var back=["r","n","b","q","k","b","n","r"];
+ for(var c=0;c<8;c++){b[0][c]={t:back[c],c:"b"};b[1][c]={t:"p",c:"b"};b[6][c]={t:"p",c:"w"};b[7][c]={t:back[c],c:"w"}}
+ return{board:b,turn:"w",castling:{wK:true,wQ:true,bK:true,bQ:true},ep:null,half:0};
+}
+function chessInB(r,c){return r>=0&&r<8&&c>=0&&c<8}
+function chessFindKing(board,color){for(var r=0;r<8;r++)for(var c=0;c<8;c++){var p=board[r][c];if(p&&p.t==="k"&&p.c===color)return{r:r,c:c}}return null}
+function chessAttacked(board,tr,tc,by){
+ var pr=by==="w"?tr+1:tr-1;
+ for(var dc=-1;dc<=1;dc+=2){var cc=tc+dc;if(chessInB(pr,cc)){var pp=board[pr][cc];if(pp&&pp.t==="p"&&pp.c===by)return true}}
+ var kn=[[-2,-1],[-2,1],[-1,-2],[-1,2],[1,-2],[1,2],[2,-1],[2,1]];
+ for(var i=0;i<8;i++){var r2=tr+kn[i][0],c2=tc+kn[i][1];if(chessInB(r2,c2)){var pn=board[r2][c2];if(pn&&pn.t==="n"&&pn.c===by)return true}}
+ for(var dr=-1;dr<=1;dr++)for(var dc2=-1;dc2<=1;dc2++){if(!dr&&!dc2)continue;var r3=tr+dr,c3=tc+dc2;if(chessInB(r3,c3)){var pk=board[r3][c3];if(pk&&pk.t==="k"&&pk.c===by)return true}}
+ var dirsR=[[1,0],[-1,0],[0,1],[0,-1]],dirsB=[[1,1],[1,-1],[-1,1],[-1,-1]];
+ for(var d=0;d<4;d++){var rr=tr,cc4=tc;while(true){rr+=dirsR[d][0];cc4+=dirsR[d][1];if(!chessInB(rr,cc4))break;var pr2=board[rr][cc4];if(pr2){if(pr2.c===by&&(pr2.t==="r"||pr2.t==="q"))return true;break}}}
+ for(var d2=0;d2<4;d2++){var rb=tr,cb=tc;while(true){rb+=dirsB[d2][0];cb+=dirsB[d2][1];if(!chessInB(rb,cb))break;var pb=board[rb][cb];if(pb){if(pb.c===by&&(pb.t==="b"||pb.t==="q"))return true;break}}}
+ return false;
+}
+function chessInCheck(board,color){var k=chessFindKing(board,color);if(!k)return false;return chessAttacked(board,k.r,k.c,color==="w"?"b":"w")}
+function chessPseudo(state,color){
+ var board=state.board,moves=[];
+ function add(fr,fc,tr,tc,extra){var m={fr:fr,fc:fc,tr:tr,tc:tc};if(extra)for(var k in extra)m[k]=extra[k];moves.push(m)}
+ for(var r=0;r<8;r++)for(var c=0;c<8;c++){
+   var p=board[r][c];if(!p||p.c!==color)continue;
+   if(p.t==="p"){
+     var dir=color==="w"?-1:1,startRow=color==="w"?6:1,lastRow=color==="w"?0:7;
+     var r1=r+dir;
+     if(chessInB(r1,c)&&!board[r1][c]){add(r,c,r1,c,r1===lastRow?{promo:true}:null);var r2=r+2*dir;if(r===startRow&&!board[r2][c])add(r,c,r2,c,{dbl:true})}
+     for(var dc=-1;dc<=1;dc+=2){var tc2=c+dc;if(!chessInB(r1,tc2))continue;var tp=board[r1][tc2];
+       if(tp&&tp.c!==color)add(r,c,r1,tc2,r1===lastRow?{promo:true}:null);
+       else if(!tp&&state.ep&&state.ep.r===r1&&state.ep.c===tc2)add(r,c,r1,tc2,{ep:true})}
+   }else if(p.t==="n"||p.t==="k"){
+     var offs=p.t==="n"?[[-2,-1],[-2,1],[-1,-2],[-1,2],[1,-2],[1,2],[2,-1],[2,1]]:[[-1,-1],[-1,0],[-1,1],[0,-1],[0,1],[1,-1],[1,0],[1,1]];
+     for(var i=0;i<offs.length;i++){var tr=r+offs[i][0],tc3=c+offs[i][1];if(!chessInB(tr,tc3))continue;var tp2=board[tr][tc3];if(!tp2||tp2.c!==color)add(r,c,tr,tc3,null)}
+     if(p.t==="k"){
+       var enemy=color==="w"?"b":"w",home=color==="w"?7:0;
+       if(r===home&&c===4&&!chessAttacked(board,home,4,enemy)){
+         var ks=color==="w"?state.castling.wK:state.castling.bK,qs=color==="w"?state.castling.wQ:state.castling.bQ;
+         if(ks&&board[home][7]&&board[home][7].t==="r"&&board[home][7].c===color&&!board[home][5]&&!board[home][6]&&!chessAttacked(board,home,5,enemy)&&!chessAttacked(board,home,6,enemy))add(r,c,home,6,{castle:"K"});
+         if(qs&&board[home][0]&&board[home][0].t==="r"&&board[home][0].c===color&&!board[home][1]&&!board[home][2]&&!board[home][3]&&!chessAttacked(board,home,3,enemy)&&!chessAttacked(board,home,2,enemy))add(r,c,home,2,{castle:"Q"});
+       }
+     }
+   }else{
+     var dirs=[];if(p.t==="r"||p.t==="q")dirs=dirs.concat([[1,0],[-1,0],[0,1],[0,-1]]);if(p.t==="b"||p.t==="q")dirs=dirs.concat([[1,1],[1,-1],[-1,1],[-1,-1]]);
+     for(var d=0;d<dirs.length;d++){var rr2=r,cc5=c;while(true){rr2+=dirs[d][0];cc5+=dirs[d][1];if(!chessInB(rr2,cc5))break;var tp3=board[rr2][cc5];if(!tp3){add(r,c,rr2,cc5,null)}else{if(tp3.c!==color)add(r,c,rr2,cc5,null);break}}}
+   }
+ }
+ return moves;
+}
+function chessApply(state,m){
+ var board=state.board.map(function(row){return row.map(function(p){return p?{t:p.t,c:p.c}:null})});
+ var cast={wK:state.castling.wK,wQ:state.castling.wQ,bK:state.castling.bK,bQ:state.castling.bQ};
+ var piece=board[m.fr][m.fc];var captured=m.ep?board[m.fr][m.tc]:board[m.tr][m.tc];
+ if(m.ep)board[m.fr][m.tc]=null;
+ board[m.tr][m.tc]=m.promo?{t:"q",c:piece.c}:piece;board[m.fr][m.fc]=null;
+ if(m.castle==="K"){board[m.tr][5]=board[m.tr][7];board[m.tr][7]=null}
+ if(m.castle==="Q"){board[m.tr][3]=board[m.tr][0];board[m.tr][0]=null}
+ if(piece.t==="k"){if(piece.c==="w"){cast.wK=false;cast.wQ=false}else{cast.bK=false;cast.bQ=false}}
+ if(piece.t==="r"){if(m.fr===7&&m.fc===0)cast.wQ=false;if(m.fr===7&&m.fc===7)cast.wK=false;if(m.fr===0&&m.fc===0)cast.bQ=false;if(m.fr===0&&m.fc===7)cast.bK=false}
+ if(captured&&captured.t==="r"){if(m.tr===7&&m.tc===0)cast.wQ=false;if(m.tr===7&&m.tc===7)cast.wK=false;if(m.tr===0&&m.tc===0)cast.bQ=false;if(m.tr===0&&m.tc===7)cast.bK=false}
+ var ep=m.dbl?{r:(m.fr+m.tr)/2,c:m.fc}:null;
+ return{board:board,turn:state.turn==="w"?"b":"w",castling:cast,ep:ep,half:(piece.t==="p"||captured)?0:state.half+1,_cap:captured,_piece:piece};
+}
+function chessLegal(state,color){
+ var all=chessPseudo(state,color),out=[];
+ for(var i=0;i<all.length;i++){var ns=chessApply(state,all[i]);if(!chessInCheck(ns.board,color))out.push(all[i])}
+ return out;
+}
+function chessEval(board){
+ var s=0;
+ for(var r=0;r<8;r++)for(var c=0;c<8;c++){var p=board[r][c];if(!p)continue;
+   var pst=CH_PST[p.t];var v=CH_VAL[p.t]+(p.c==="w"?pst[r][c]:pst[7-r][c]);
+   s+=p.c==="w"?v:-v}
+ return s;
+}
+function chessSearch(state,depth,alpha,beta){
+ var color=state.turn;
+ var moves=chessLegal(state,color);
+ if(depth===0||moves.length===0){
+   if(moves.length===0){if(chessInCheck(state.board,color))return color==="w"?-99999+ (3-depth):99999-(3-depth);return 0}
+   return chessEval(state.board);
+ }
+ moves.sort(function(a,b){var ca=state.board[a.tr][a.tc],cb=state.board[b.tr][b.tc];return (cb?CH_VAL[cb.t]:0)-(ca?CH_VAL[ca.t]:0)});
+ if(color==="b"){
+   var best=Infinity;
+   for(var i=0;i<moves.length;i++){var sc=chessSearch(chessApply(state,moves[i]),depth-1,alpha,beta);if(sc<best)best=sc;if(best<beta)beta=best;if(beta<=alpha)break}
+   return best;
+ }else{
+   var best2=-Infinity;
+   for(var j=0;j<moves.length;j++){var sc2=chessSearch(chessApply(state,moves[j]),depth-1,alpha,beta);if(sc2>best2)best2=sc2;if(best2>alpha)alpha=best2;if(beta<=alpha)break}
+   return best2;
+ }
+}
+function chessAIMove(){
+ var moves=chessLegal(chess.state,"b");if(!moves.length)return;
+ moves.sort(function(a,b){var ca=chess.state.board[a.tr][a.tc],cb=chess.state.board[b.tr][b.tc];return (cb?CH_VAL[cb.t]:0)-(ca?CH_VAL[ca.t]:0)});
+ var best=null,bestScore=Infinity;
+ for(var i=0;i<moves.length;i++){
+   var ns=chessApply(chess.state,moves[i]);
+   var sc=chessSearch(ns,1,-Infinity,Infinity)+Math.random()*8;
+   if(sc<bestScore){bestScore=sc;best=moves[i]}
+ }
+ if(best)chessDoMove(best);
+}
+function renderChessRecord(){$("chessWins").textContent=chessRecord.w;$("chessLosses").textContent=chessRecord.l;$("chessDraws").textContent=chessRecord.d}
+function renderChess(){
+ var bd=$("chessBoard");bd.innerHTML="";
+ var legalSel=chess.sel?chessLegal(chess.state,"w").filter(function(m){return m.fr===chess.sel.r&&m.fc===chess.sel.c}):[];
+ var kingPos=chessFindKing(chess.state.board,chess.state.turn);
+ var inCheck=chessInCheck(chess.state.board,chess.state.turn);
+ for(var r=0;r<8;r++)for(var c=0;c<8;c++){
+   (function(r,c){
+     var btn=document.createElement("button");btn.type="button";
+     var cls="ccell "+(((r+c)%2===0)?"light":"dark");
+     if(chess.lastMove&&((chess.lastMove.fr===r&&chess.lastMove.fc===c)||(chess.lastMove.tr===r&&chess.lastMove.tc===c)))cls+=" last";
+     if(chess.sel&&chess.sel.r===r&&chess.sel.c===c)cls+=" sel";
+     if(inCheck&&kingPos&&kingPos.r===r&&kingPos.c===c&&chess.state.turn===chess.turnOfKing(kingPos))cls+=" check";
+     var isHint=false,isCap=false;
+     legalSel.forEach(function(m){if(m.tr===r&&m.tc===c){if(chess.state.board[r][c]||m.ep)isCap=true;else isHint=true}});
+     if(isHint)cls+=" hint";if(isCap)cls+=" hintcap";
+     btn.className=cls;
+     var p=chess.state.board[r][c];
+     if(p){var sp=document.createElement("span");sp.className=p.c==="w"?"wp":"bp";sp.textContent=CH_GLYPH[p.c+p.t];btn.appendChild(sp)}
+     btn.setAttribute("aria-label","Square "+("abcdefgh"[c])+(8-r)+(p?(" "+(p.c==="w"?"White":"Black")+" "+p.t):""));
+     btn.addEventListener("click",function(){chessTap(r,c)});
+     bd.appendChild(btn);
+   })(r,c);
+ }
+ $("capturedByWhite").textContent=chess.capW.map(function(t){return CH_GLYPH["b"+t]}).join(" ");
+ $("capturedByBlack").textContent=chess.capB.map(function(t){return CH_GLYPH["w"+t]}).join(" ");
+ renderChessRecord();
+}
+function chessGameEndCheck(){
+ var color=chess.state.turn;var moves=chessLegal(chess.state,color);
+ if(moves.length===0){
+   chess.over=true;
+   if(chessInCheck(chess.state.board,color)){
+     if(color==="w"){chessRecord.l++;$("chessStatus").textContent="♚ Checkmate — the computer wins. Tap New Game to try again!";toast("♚ Checkmate — computer wins")}
+     else{chessRecord.w++;$("chessStatus").textContent="🎉 Checkmate — YOU win! Brilliant game!";toast("🎉 Checkmate — you win!")}
+   }else{chessRecord.d++;$("chessStatus").textContent="🤝 Stalemate — it's a draw! Tap New Game to play again."}
+   save("buzzplay_chess_record",chessRecord);renderChessRecord();return true;
+ }
+ // insufficient material
+ var pieces=[];for(var r=0;r<8;r++)for(var c=0;c<8;c++){var p=chess.state.board[r][c];if(p&&p.t!=="k")pieces.push(p.t)}
+ if(pieces.length===0||(pieces.length===1&&(pieces[0]==="b"||pieces[0]==="n"))){
+   chess.over=true;chessRecord.d++;save("buzzplay_chess_record",chessRecord);
+   $("chessStatus").textContent="🤝 Draw — not enough pieces left to checkmate.";renderChessRecord();return true;
+ }
+ if(chess.state.half>=100){chess.over=true;chessRecord.d++;save("buzzplay_chess_record",chessRecord);$("chessStatus").textContent="🤝 Draw — 50 moves without a capture or pawn move.";renderChessRecord();return true}
+ return false;
+}
+function chessDoMove(m){
+ var before=chess.state;var piece=before.board[m.fr][m.fc];
+ var captured=m.ep?before.board[m.fr][m.tc]:before.board[m.tr][m.tc];
+ var ns=chessApply(before,m);
+ chess.state={board:ns.board,turn:ns.turn,castling:ns.castling,ep:ns.ep,half:ns.half};
+ chess.lastMove=m;chess.sel=null;
+ if(captured){if(piece.c==="w")chess.capW.push(captured.t);else chess.capB.push(captured.t)}
+ var promoNote=m.promo?" Pawn promoted to Queen! 👑":"";
+ renderChess();
+ if(chessGameEndCheck())return;
+ if(chess.state.turn==="b"){
+   $("chessStatus").textContent="Computer is thinking… ♟️";
+   setTimeout(function(){if(chess.over)return;chessAIMove()},380);
+ }else{
+   var chk=chessInCheck(chess.state.board,"w");
+   $("chessStatus").textContent=(chk?"⚠️ Check! Your move — defend your king!":"Your move — you are White ♔")+promoNote;
+   renderChess();
+ }
+}
+function chessTap(r,c){
+ if(!chess||chess.over||chess.state.turn!=="w")return;
+ var p=chess.state.board[r][c];
+ if(chess.sel){
+   var moves=chessLegal(chess.state,"w").filter(function(m){return m.fr===chess.sel.r&&m.fc===chess.sel.c&&m.tr===r&&m.tc===c});
+   if(moves.length){chessDoMove(moves[0]);return}
+ }
+ if(p&&p.c==="w"){chess.sel={r:r,c:c}}
+ else{chess.sel=null}
+ renderChess();
+}
+function chessNewGame(){
+ chess={state:chessNewState(),sel:null,lastMove:null,capW:[],capB:[],over:false,turnOfKing:function(kp){return chess.state.board[kp.r][kp.c].c}};
+ $("chessStatus").textContent="Your move — you are White ♔";
+ renderChess();
+}
+$("chessNew").addEventListener("click",chessNewGame);
+chessNewGame();
+</script>
+</body>
+</html>
